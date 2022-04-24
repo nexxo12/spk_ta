@@ -1,0 +1,62 @@
+html {
+  scroll-behavior: smooth;
+}
+
+.bg-carousel{
+  background: rgb(106,193,228);
+}
+
+.waves{
+  height: 120px;
+
+}
+
+.img-contact{
+  margin-left:200px;
+}
+
+.carousel{
+  display: none;
+}
+
+.waves{
+  height:100px;
+  position:relative;
+  bottom:180px;
+  right: 5%;
+  z-index:-1;
+  width:105%;
+}
+
+
+@media (max-width: 767px) {
+  .img-contact{
+    margin-left: 0px;
+    width: 100%;
+  }
+
+  .waves{
+    height:100px;
+    position:relative;
+    bottom:0px;
+  }
+
+}
+
+@media only screen and (max-width: 600px) {
+  .demo{
+    display: none;
+  }
+
+  .carousel{
+    display: inline;
+  }
+
+  .waves{
+    height:100px;
+    position:relative;
+    bottom:0px;
+  }
+
+
+}
