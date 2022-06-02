@@ -16,6 +16,16 @@ class Home extends BaseController
 
     public function index()
     {
-        return view('index');
+        $data = [
+            'proc' => $this->namePC->showProc(),
+            'mobo' => $this->namePC->showMobo(),
+            'ram' => $this->namePC->showRAM(),
+            'ssd' => $this->namePC->showSSD(),
+            'hdd' => $this->namePC->showHDD(),
+            'vga' => $this->namePC->showVGA(),
+            'psu' => $this->namePC->showPSU(),
+            'case' => $this->namePC->showCASE(),
+        ];
+        return view('index', $data);
     }
 }

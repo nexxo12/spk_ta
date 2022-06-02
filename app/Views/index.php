@@ -27,10 +27,11 @@
 				<label for="inputState" style="font-weight: bold;">Pilih komponen :</label>
 				<select id="inputState" class="form-control selectpicker" data-live-search="true">
 					<option selected>Processor...</option>
-					<option value="Intel Core i3-10105F" data-tokens="Intel Core i3-10105F">Intel Core i3-10105F</option>
-					<option value="Intel Core i5-10400F" data-tokens="Intel Core i5-10400F">Intel Core i5-10400F</option>
-					<option value="AMD Ryzen 5-5600G" data-tokens="AMD Ryzen 5-5600G">AMD Ryzen 5-5600G</option>
-					<option value="AMD Ryzen 3-3200G" data-tokens="AMD Ryzen 3-3200G">AMD Ryzen 3-3200G</option>
+					<?php foreach ($proc as $p) : ?>
+
+						<option value="<?= $p['ID_BARANG']; ?>" data-tokens="<?= $p['NAMA_BARANG']; ?>"><?= $p['NAMA_BARANG']; ?></option>
+
+					<?php endforeach; ?>
 				</select>
 			</div>
 			<div class="form-group mt-4 col-md-2">
@@ -45,10 +46,11 @@
 			<div class="form-group col-md-8">
 				<select id="inputState" class="form-control selectpicker" data-live-search="true">
 					<option selected>Motherboard...</option>
-					<option value="Intel Core i3-10105F" data-tokens="Intel Core i3-10105F">Intel Core i3-10105F</option>
-					<option value="Intel Core i5-10400F" data-tokens="Intel Core i5-10400F">Intel Core i5-10400F</option>
-					<option value="AMD Ryzen 5-5600G" data-tokens="AMD Ryzen 5-5600G">AMD Ryzen 5-5600G</option>
-					<option value="AMD Ryzen 3-3200G" data-tokens="AMD Ryzen 3-3200G">AMD Ryzen 3-3200G</option>
+					<?php foreach ($mobo as $mb) : ?>
+
+						<option value="<?= $mb['ID_BARANG']; ?>" data-tokens="<?= $mb['NAMA_BARANG']; ?>"><?= $mb['NAMA_BARANG']; ?></option>
+
+					<?php endforeach; ?>
 				</select>
 			</div>
 			<div class="form-group col-md-2">
@@ -61,10 +63,11 @@
 			<div class="form-group col-md-8">
 				<select id="inputState" class="form-control selectpicker" data-live-search="true">
 					<option selected>Memory...</option>
-					<option value="Intel Core i3-10105F" data-tokens="Intel Core i3-10105F">Intel Core i3-10105F</option>
-					<option value="Intel Core i5-10400F" data-tokens="Intel Core i5-10400F">Intel Core i5-10400F</option>
-					<option value="AMD Ryzen 5-5600G" data-tokens="AMD Ryzen 5-5600G">AMD Ryzen 5-5600G</option>
-					<option value="AMD Ryzen 3-3200G" data-tokens="AMD Ryzen 3-3200G">AMD Ryzen 3-3200G</option>
+					<?php foreach ($ram as $mem) : ?>
+
+						<option value="<?= $mem['ID_BARANG']; ?>" data-tokens="<?= $mem['NAMA_BARANG']; ?>"><?= $mem['NAMA_BARANG']; ?></option>
+
+					<?php endforeach; ?>
 				</select>
 			</div>
 			<div class="form-group col-md-2">
@@ -77,10 +80,11 @@
 			<div class="form-group col-md-8">
 				<select id="inputState" class="form-control selectpicker" data-live-search="true">
 					<option selected>SSD...</option>
-					<option value="Intel Core i3-10105F" data-tokens="Intel Core i3-10105F">Intel Core i3-10105F</option>
-					<option value="Intel Core i5-10400F" data-tokens="Intel Core i5-10400F">Intel Core i5-10400F</option>
-					<option value="AMD Ryzen 5-5600G" data-tokens="AMD Ryzen 5-5600G">AMD Ryzen 5-5600G</option>
-					<option value="AMD Ryzen 3-3200G" data-tokens="AMD Ryzen 3-3200G">AMD Ryzen 3-3200G</option>
+					<?php foreach ($ssd as $sd) : ?>
+
+						<option value="<?= $sd['ID_BARANG']; ?>" data-tokens="<?= $sd['NAMA_BARANG']; ?>"><?= $sd['NAMA_BARANG']; ?></option>
+
+					<?php endforeach; ?>
 				</select>
 			</div>
 			<div class="form-group col-md-2">
@@ -93,10 +97,11 @@
 			<div class="form-group col-md-8">
 				<select id="inputState" class="form-control selectpicker" data-live-search="true">
 					<option selected>Hardisk...</option>
-					<option value="Intel Core i3-10105F" data-tokens="Intel Core i3-10105F">Intel Core i3-10105F</option>
-					<option value="Intel Core i5-10400F" data-tokens="Intel Core i5-10400F">Intel Core i5-10400F</option>
-					<option value="AMD Ryzen 5-5600G" data-tokens="AMD Ryzen 5-5600G">AMD Ryzen 5-5600G</option>
-					<option value="AMD Ryzen 3-3200G" data-tokens="AMD Ryzen 3-3200G">AMD Ryzen 3-3200G</option>
+					<?php foreach ($hdd as $hd) : ?>
+
+						<option value="<?= $hd['ID_BARANG']; ?>" data-tokens="<?= $hd['NAMA_BARANG']; ?>"><?= $hd['NAMA_BARANG']; ?></option>
+
+					<?php endforeach; ?>
 				</select>
 			</div>
 			<div class="form-group col-md-2">
@@ -109,10 +114,11 @@
 			<div class="form-group col-md-8">
 				<select id="inputState" class="form-control selectpicker" data-live-search="true">
 					<option selected>Graphic Card (VGA)...</option>
-					<option value="Intel Core i3-10105F" data-tokens="Intel Core i3-10105F">Intel Core i3-10105F</option>
-					<option value="Intel Core i5-10400F" data-tokens="Intel Core i5-10400F">Intel Core i5-10400F</option>
-					<option value="AMD Ryzen 5-5600G" data-tokens="AMD Ryzen 5-5600G">AMD Ryzen 5-5600G</option>
-					<option value="AMD Ryzen 3-3200G" data-tokens="AMD Ryzen 3-3200G">AMD Ryzen 3-3200G</option>
+					<?php foreach ($vga as $gpu) : ?>
+
+						<option value="<?= $gpu['ID_BARANG']; ?>" data-tokens="<?= $gpu['NAMA_BARANG']; ?>"><?= $gpu['NAMA_BARANG']; ?></option>
+
+					<?php endforeach; ?>
 				</select>
 			</div>
 			<div class="form-group col-md-2">
@@ -125,10 +131,11 @@
 			<div class="form-group col-md-8">
 				<select id="inputState" class="form-control selectpicker" data-live-search="true">
 					<option selected>Power Supply (PSU)...</option>
-					<option value="Intel Core i3-10105F" data-tokens="Intel Core i3-10105F">Intel Core i3-10105F</option>
-					<option value="Intel Core i5-10400F" data-tokens="Intel Core i5-10400F">Intel Core i5-10400F</option>
-					<option value="AMD Ryzen 5-5600G" data-tokens="AMD Ryzen 5-5600G">AMD Ryzen 5-5600G</option>
-					<option value="AMD Ryzen 3-3200G" data-tokens="AMD Ryzen 3-3200G">AMD Ryzen 3-3200G</option>
+					<?php foreach ($psu as $ps) : ?>
+
+						<option value="<?= $ps['ID_BARANG']; ?>" data-tokens="<?= $ps['NAMA_BARANG']; ?>"><?= $ps['NAMA_BARANG']; ?></option>
+
+					<?php endforeach; ?>
 				</select>
 			</div>
 			<div class="form-group col-md-2">
@@ -141,10 +148,11 @@
 			<div class="form-group col-md-8">
 				<select id="inputState" class="form-control selectpicker" data-live-search="true">
 					<option selected>Casing (Case)...</option>
-					<option value="Intel Core i3-10105F" data-tokens="Intel Core i3-10105F">Intel Core i3-10105F</option>
-					<option value="Intel Core i5-10400F" data-tokens="Intel Core i5-10400F">Intel Core i5-10400F</option>
-					<option value="AMD Ryzen 5-5600G" data-tokens="AMD Ryzen 5-5600G">AMD Ryzen 5-5600G</option>
-					<option value="AMD Ryzen 3-3200G" data-tokens="AMD Ryzen 3-3200G">AMD Ryzen 3-3200G</option>
+					<?php foreach ($case as $cs) : ?>
+
+						<option value="<?= $cs['ID_BARANG']; ?>" data-tokens="<?= $cs['NAMA_BARANG']; ?>"><?= $cs['NAMA_BARANG']; ?></option>
+
+					<?php endforeach; ?>
 				</select>
 			</div>
 			<div class="form-group col-md-2">
@@ -160,6 +168,22 @@
 			</div>
 		</div>
 	</div>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br><br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br><br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
 
 	<!-- -----------------------modal----------------------------------- -->
 	<!-- Modal -->
