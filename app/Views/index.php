@@ -36,11 +36,11 @@
 			</div>
 			<div class="form-group mt-4 col-md-2">
 				<label for="inputEmail4" style="font-weight: bold;">Harga :</label>
-				<input type="email" class="form-control" id="inputEmail4" autocomplete="off">
+				<input type="number" class="form-control" id="hg_proc" autocomplete="off">
 			</div>
 			<div class="form-group mt-4 col-md-2">
 				<label for="inputEmail4" style="font-weight: bold;">Pemakaian :</label>
-				<input type="email" class="form-control" id="inputEmail4" autocomplete="off">
+				<input type="number" class="form-control" id="use_proc" autocomplete="off">
 			</div>
 			<!-- ----------------------------------------------------------------------------------- -->
 			<div class="form-group col-md-8">
@@ -164,7 +164,7 @@
 		</div>
 		<div class="row">
 			<div class="col text-center">
-				<button type="submit" class="btn btn-primary" data-toggle="modal" data-target="#staticBackdrop">Hitung</button>
+				<button type="submit" class="btn btn-primary" data-toggle="" data-target="#staticBackdrop" id="hitung">Hitung</button>
 			</div>
 		</div>
 	</div>
