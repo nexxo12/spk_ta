@@ -11,22 +11,21 @@
 			Keterangan :
 			<ol>
 				<li>Pilih Komponen : Memilih komponen (part) komputer sesuai merk dan seri yang dimiliki</li>
-				<li>Harga : Masukan harga pembelian, jika lupa / tidak tahu bisa menggunakan harga rekomendasi system</li>
+				<li>Harga : Masukan harga pembelian part pc kamu, <strong>range harga sesuai tertera</strong></li>
 				<li>Pemakaian : Masukan durasi pemakaian dengan format sebagai berikut :
 					<ul>
-						<li>0,1 = format bulan</li>
-						<li>1,1 = format tahun dan bulan</li>
 						<li>1 = format tahun</li>
+						<li>1,1 = format tahun dan bulan</li>
 						<li>contoh : 2,3 = 2 tahun 3 bulan</li>
 					</ul>
 				</li>
 			</ol>
 		</div>
 		<div class="row mb-4">
-			<div class="form-group mt-4 col-md-8">
+			<div class="form-group mt-4 col-md-6">
 				<label for="inputState" style="font-weight: bold;">Pilih komponen :</label>
 				<select id="inputState" class="form-control selectpicker" data-live-search="true">
-					<option selected>Processor...</option>
+					<option selected>Processor... (Rp.100.000 - Rp. 10.000.000)</option>
 					<?php foreach ($proc as $p) : ?>
 
 						<option value="<?= $p['ID_BARANG']; ?>" data-tokens="<?= $p['NAMA_BARANG']; ?>"><?= $p['NAMA_BARANG']; ?></option>
@@ -35,17 +34,21 @@
 				</select>
 			</div>
 			<div class="form-group mt-4 col-md-2">
-				<label for="inputEmail4" style="font-weight: bold;">Harga :</label>
+				<label for="inputEmail4" style="font-weight: bold;">Harga Beli :</label>
 				<input type="number" class="form-control" id="hg_proc" autocomplete="off">
 			</div>
 			<div class="form-group mt-4 col-md-2">
 				<label for="inputEmail4" style="font-weight: bold;">Pemakaian :</label>
 				<input type="number" class="form-control" id="use_proc" autocomplete="off">
 			</div>
+			<div class="form-group mt-4 col-md-2">
+				<label for="inputEmail4" style="font-weight: bold;">Harga Jual :</label>
+				<input type="number" class="form-control" id="sell_proc" autocomplete="off" readonly>
+			</div>
 			<!-- ----------------------------------------------------------------------------------- -->
-			<div class="form-group col-md-8">
+			<div class="form-group col-md-6">
 				<select id="inputState" class="form-control selectpicker" data-live-search="true">
-					<option selected>Motherboard...</option>
+					<option selected>Motherboard... (Rp.100.000 - Rp. 6.000.000)</option>
 					<?php foreach ($mobo as $mb) : ?>
 
 						<option value="<?= $mb['ID_BARANG']; ?>" data-tokens="<?= $mb['NAMA_BARANG']; ?>"><?= $mb['NAMA_BARANG']; ?></option>
@@ -54,15 +57,18 @@
 				</select>
 			</div>
 			<div class="form-group col-md-2">
-				<input type="email" class="form-control" id="inputEmail4" autocomplete="off">
+				<input type="number" class="form-control" id="hg_mb" autocomplete="off">
 			</div>
 			<div class="form-group col-md-2">
-				<input type="email" class="form-control" id="inputEmail4" autocomplete="off">
+				<input type="number" class="form-control" id="use_mb" autocomplete="off">
+			</div>
+			<div class="form-group col-md-2">
+				<input type="number" class="form-control" id="sell_mb" autocomplete="off" readonly>
 			</div>
 			<!-- ----------------------------------------------------------------------------------- -->
-			<div class="form-group col-md-8">
+			<div class="form-group col-md-6">
 				<select id="inputState" class="form-control selectpicker" data-live-search="true">
-					<option selected>Memory...</option>
+					<option selected>Memory... (Rp.100.000 - Rp. 5.000.000)</option>
 					<?php foreach ($ram as $mem) : ?>
 
 						<option value="<?= $mem['ID_BARANG']; ?>" data-tokens="<?= $mem['NAMA_BARANG']; ?>"><?= $mem['NAMA_BARANG']; ?></option>
@@ -71,15 +77,16 @@
 				</select>
 			</div>
 			<div class="form-group col-md-2">
-				<input type="email" class="form-control" id="inputEmail4" autocomplete="off">
+				<input type="number" class="form-control" id="hg_ram" autocomplete="off">
 			</div>
 			<div class="form-group col-md-2">
-				<input type="email" class="form-control" id="inputEmail4" autocomplete="off">
+				<input type="number" class="form-control" id="use_ram" autocomplete="off">
+				<input type="number" class="form-control" id="sell_ram" autocomplete="off" readonly>
 			</div>
 			<!-- ----------------------------------------------------------------------------------- -->
-			<div class="form-group col-md-8">
+			<div class="form-group col-md-6">
 				<select id="inputState" class="form-control selectpicker" data-live-search="true">
-					<option selected>SSD...</option>
+					<option selected>SSD... (Rp.100.000 - Rp. 4.000.000)</option>
 					<?php foreach ($ssd as $sd) : ?>
 
 						<option value="<?= $sd['ID_BARANG']; ?>" data-tokens="<?= $sd['NAMA_BARANG']; ?>"><?= $sd['NAMA_BARANG']; ?></option>
@@ -88,15 +95,16 @@
 				</select>
 			</div>
 			<div class="form-group col-md-2">
-				<input type="email" class="form-control" id="inputEmail4" autocomplete="off">
+				<input type="number" class="form-control" id="hg_ssd" autocomplete="off">
 			</div>
 			<div class="form-group col-md-2">
-				<input type="email" class="form-control" id="inputEmail4" autocomplete="off">
+				<input type="number" class="form-control" id="use_ssd" autocomplete="off">
+				<input type="number" class="form-control" id="sell_ssd" autocomplete="off" readonly>
 			</div>
 			<!-- ----------------------------------------------------------------------------------- -->
-			<div class="form-group col-md-8">
+			<div class="form-group col-md-6">
 				<select id="inputState" class="form-control selectpicker" data-live-search="true">
-					<option selected>Hardisk...</option>
+					<option selected>Hardisk... (Rp.100.000 - Rp. 3.000.000)</option>
 					<?php foreach ($hdd as $hd) : ?>
 
 						<option value="<?= $hd['ID_BARANG']; ?>" data-tokens="<?= $hd['NAMA_BARANG']; ?>"><?= $hd['NAMA_BARANG']; ?></option>
@@ -105,15 +113,15 @@
 				</select>
 			</div>
 			<div class="form-group col-md-2">
-				<input type="email" class="form-control" id="inputEmail4" autocomplete="off">
+				<input type="number" class="form-control" id="inputEmail4" autocomplete="off">
 			</div>
 			<div class="form-group col-md-2">
-				<input type="email" class="form-control" id="inputEmail4" autocomplete="off">
+				<input type="number" class="form-control" id="inputEmail4" autocomplete="off">
 			</div>
 			<!-- ----------------------------------------------------------------------------------- -->
-			<div class="form-group col-md-8">
+			<div class="form-group col-md-6">
 				<select id="inputState" class="form-control selectpicker" data-live-search="true">
-					<option selected>Graphic Card (VGA)...</option>
+					<option selected>Graphic Card (VGA)... (Rp.100.000 - Rp. 10.000.000)</option>
 					<?php foreach ($vga as $gpu) : ?>
 
 						<option value="<?= $gpu['ID_BARANG']; ?>" data-tokens="<?= $gpu['NAMA_BARANG']; ?>"><?= $gpu['NAMA_BARANG']; ?></option>
@@ -122,15 +130,15 @@
 				</select>
 			</div>
 			<div class="form-group col-md-2">
-				<input type="email" class="form-control" id="inputEmail4" autocomplete="off">
+				<input type="number" class="form-control" id="inputEmail4" autocomplete="off">
 			</div>
 			<div class="form-group col-md-2">
-				<input type="email" class="form-control" id="inputEmail4" autocomplete="off">
+				<input type="number" class="form-control" id="inputEmail4" autocomplete="off">
 			</div>
 			<!-- ----------------------------------------------------------------------------------- -->
-			<div class="form-group col-md-8">
+			<div class="form-group col-md-6">
 				<select id="inputState" class="form-control selectpicker" data-live-search="true">
-					<option selected>Power Supply (PSU)...</option>
+					<option selected>Power Supply (PSU)... (Rp.100.000 - Rp. 3.000.000)</option>
 					<?php foreach ($psu as $ps) : ?>
 
 						<option value="<?= $ps['ID_BARANG']; ?>" data-tokens="<?= $ps['NAMA_BARANG']; ?>"><?= $ps['NAMA_BARANG']; ?></option>
@@ -139,15 +147,15 @@
 				</select>
 			</div>
 			<div class="form-group col-md-2">
-				<input type="email" class="form-control" id="inputEmail4" autocomplete="off">
+				<input type="number" class="form-control" id="inputEmail4" autocomplete="off">
 			</div>
 			<div class="form-group col-md-2">
-				<input type="email" class="form-control" id="inputEmail4" autocomplete="off">
+				<input type="number" class="form-control" id="inputEmail4" autocomplete="off">
 			</div>
 			<!-- ----------------------------------------------------------------------------------- -->
-			<div class="form-group col-md-8">
+			<div class="form-group col-md-6">
 				<select id="inputState" class="form-control selectpicker" data-live-search="true">
-					<option selected>Casing (Case)...</option>
+					<option selected>Casing (Case)... (Rp.100.000 - Rp. 3.000.000)</option>
 					<?php foreach ($case as $cs) : ?>
 
 						<option value="<?= $cs['ID_BARANG']; ?>" data-tokens="<?= $cs['NAMA_BARANG']; ?>"><?= $cs['NAMA_BARANG']; ?></option>
@@ -156,10 +164,10 @@
 				</select>
 			</div>
 			<div class="form-group col-md-2">
-				<input type="email" class="form-control" id="inputEmail4" autocomplete="off">
+				<input type="number" class="form-control" id="inputEmail4" autocomplete="off">
 			</div>
 			<div class="form-group col-md-2">
-				<input type="email" class="form-control" id="inputEmail4" autocomplete="off">
+				<input type="number" class="form-control" id="inputEmail4" autocomplete="off">
 			</div>
 		</div>
 		<div class="row">
