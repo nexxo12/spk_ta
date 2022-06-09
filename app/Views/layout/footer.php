@@ -106,8 +106,8 @@
 
     //#########menentukan anggota harga processor start###########
     function mf_HargaProc(x) {
-        var murah = new linier_turun(100, 900);
-        var mahal = new linier_naik(100, 900);
+        var murah = new linier_turun(100, 1000);
+        var mahal = new linier_naik(100, 1000);
         return {
             "murah": murah.u(x),
             "mahal": mahal.u(x),
@@ -126,8 +126,8 @@
     }
     //anggota output harga processor
     function mf_outHargaProc(x) {
-        var murah = new linier_turun(100, 600);
-        var mahal = new linier_naik(100, 600);
+        var murah = new linier_turun(100, 700);
+        var mahal = new linier_naik(100, 700);
         return {
             "murah": murah.u(x),
             "mahal": mahal.u(x)
@@ -137,7 +137,7 @@
     function mf_outHargaProc_sugeno() {
         return {
             "murah": 100,
-            "mahal": 600
+            "mahal": 700
         };
     }
     // #################end processor ##############
@@ -145,8 +145,8 @@
 
     // ###########menentukan member function mobo #######
     function mf_HargaMb(x) {
-        var murah = new linier_turun(100, 600);
-        var mahal = new linier_naik(100, 600);
+        var murah = new linier_turun(100, 1000);
+        var mahal = new linier_naik(100, 1000);
         return {
             "murah_mb": murah.u(x),
             "mahal_mb": mahal.u(x),
@@ -165,8 +165,8 @@
     }
     //anggota output harga
     function mf_outHargaMb(x) {
-        var murah = new linier_turun(100, 500);
-        var mahal = new linier_naik(100, 500);
+        var murah = new linier_turun(100, 700);
+        var mahal = new linier_naik(100, 700);
         return {
             "murah_mb": murah.u(x),
             "mahal_mb": mahal.u(x)
@@ -176,7 +176,7 @@
     function mf_outHargaMb_sugeno() {
         return {
             "murah": 100,
-            "mahal": 500
+            "mahal": 700
         };
     }
     // #################end motherboard ##############
@@ -184,8 +184,8 @@
 
     // ########### MEMBER FUNCTION RAM MEMORY #######
     function mf_HargaRAM(x) {
-        var murah = new linier_turun(100, 500);
-        var mahal = new linier_naik(100, 500);
+        var murah = new linier_turun(100, 1000);
+        var mahal = new linier_naik(100, 1000);
         return {
             "murah_ram": murah.u(x),
             "mahal_ram": mahal.u(x),
@@ -204,8 +204,8 @@
     }
     //anggota output harga
     function mf_outHargaRAM(x) {
-        var murah = new linier_turun(100, 400);
-        var mahal = new linier_naik(100, 400);
+        var murah = new linier_turun(100, 700);
+        var mahal = new linier_naik(100, 700);
         return {
             "murah_ram": murah.u(x),
             "mahal_ram": mahal.u(x)
@@ -215,7 +215,7 @@
     function mf_outHargaRAM_sugeno() {
         return {
             "murah": 100,
-            "mahal": 400
+            "mahal": 700
         };
     }
     // ################# END RAM MEMORY ##############
@@ -223,8 +223,8 @@
 
     // ########### MEMBER FUNCTION SSD #######
     function mf_HargaSSD(x) {
-        var murah = new linier_turun(100, 400);
-        var mahal = new linier_naik(100, 400);
+        var murah = new linier_turun(100, 1000);
+        var mahal = new linier_naik(100, 1000);
         return {
             "murah_ssd": murah.u(x),
             "mahal_ssd": mahal.u(x),
@@ -243,8 +243,8 @@
     }
     //anggota output harga
     function mf_outHargaSSD(x) {
-        var murah = new linier_turun(100, 300);
-        var mahal = new linier_naik(100, 300);
+        var murah = new linier_turun(100, 700);
+        var mahal = new linier_naik(100, 700);
         return {
             "murah_ssd": murah.u(x),
             "mahal_ssd": mahal.u(x)
@@ -254,10 +254,166 @@
     function mf_outHargaSSD_sugeno() {
         return {
             "murah": 100,
-            "mahal": 300
+            "mahal": 700
         };
     }
-    // ################# END RAM MEMORY ##############
+    // ################# END SSD ##############
+    // --------------------------------------------------------------------------
+
+    // ########### MEMBER FUNCTION HDD #######
+    function mf_HargaHDD(x) {
+        var murah = new linier_turun(100, 1000);
+        var mahal = new linier_naik(100, 1000);
+        return {
+            "murah_hdd": murah.u(x),
+            "mahal_hdd": mahal.u(x),
+        };
+    }
+    //anggota pemakaian
+    function mf_UseHDD(x) {
+        var oneY = new linier_turun(0.1, 1);
+        var twoY = new segitiga(0.1, 1, 2);
+        var threeY = new linier_naik(1, 2.7);
+        return {
+            "oneY_hdd": oneY.u(x),
+            "twoY_hdd": twoY.u(x),
+            "threeY_hdd": threeY.u(x)
+        };
+    }
+    //anggota output harga
+    function mf_outHargaHDD(x) {
+        var murah = new linier_turun(100, 700);
+        var mahal = new linier_naik(100, 700);
+        return {
+            "murah_hdd": murah.u(x),
+            "mahal_hdd": mahal.u(x)
+        };
+    }
+
+    function mf_outHargaHDD_sugeno() {
+        return {
+            "murah": 100,
+            "mahal": 700
+        };
+    }
+    // ################# END HDD ##############
+    // --------------------------------------------------------------------------
+
+    // ########### MEMBER FUNCTION VGA #######
+    function mf_HargaVGA(x) {
+        var murah = new linier_turun(100, 1000);
+        var mahal = new linier_naik(100, 1000);
+        return {
+            "murah_vga": murah.u(x),
+            "mahal_vga": mahal.u(x),
+        };
+    }
+    //anggota pemakaian
+    function mf_UseVGA(x) {
+        var oneY = new linier_turun(0.1, 1);
+        var twoY = new segitiga(0.1, 1, 2);
+        var threeY = new linier_naik(1, 2.7);
+        return {
+            "oneY_vga": oneY.u(x),
+            "twoY_vga": twoY.u(x),
+            "threeY_vga": threeY.u(x)
+        };
+    }
+    //anggota output harga
+    function mf_outHargaVGA(x) {
+        var murah = new linier_turun(100, 700);
+        var mahal = new linier_naik(100, 700);
+        return {
+            "murah_vga": murah.u(x),
+            "mahal_vga": mahal.u(x)
+        };
+    }
+
+    function mf_outHargaVGA_sugeno() {
+        return {
+            "murah": 100,
+            "mahal": 700
+        };
+    }
+    // ################# END VGA ##############
+    // --------------------------------------------------------------------------
+
+    // ########### MEMBER FUNCTION PSU #######
+    function mf_HargaPSU(x) {
+        var murah = new linier_turun(100, 1000);
+        var mahal = new linier_naik(100, 1000);
+        return {
+            "murah_psu": murah.u(x),
+            "mahal_psu": mahal.u(x),
+        };
+    }
+    //anggota pemakaian
+    function mf_UsePSU(x) {
+        var oneY = new linier_turun(0.1, 1);
+        var twoY = new segitiga(0.1, 1, 2);
+        var threeY = new linier_naik(1, 2.7);
+        return {
+            "oneY_psu": oneY.u(x),
+            "twoY_psu": twoY.u(x),
+            "threeY_psu": threeY.u(x)
+        };
+    }
+    //anggota output harga
+    function mf_outHargaPSU(x) {
+        var murah = new linier_turun(100, 700);
+        var mahal = new linier_naik(100, 700);
+        return {
+            "murah_psu": murah.u(x),
+            "mahal_psu": mahal.u(x)
+        };
+    }
+
+    function mf_outHargaPSU_sugeno() {
+        return {
+            "murah": 100,
+            "mahal": 700
+        };
+    }
+    // ################# END PSU ##############
+    // --------------------------------------------------------------------------
+
+    // ########### MEMBER FUNCTION CASING #######
+    function mf_HargaCASE(x) {
+        var murah = new linier_turun(100, 1000);
+        var mahal = new linier_naik(100, 1000);
+        return {
+            "murah_case": murah.u(x),
+            "mahal_case": mahal.u(x),
+        };
+    }
+    //anggota pemakaian
+    function mf_UseCASE(x) {
+        var oneY = new linier_turun(0.1, 1);
+        var twoY = new segitiga(0.1, 1, 2);
+        var threeY = new linier_naik(1, 2.7);
+        return {
+            "oneY_case": oneY.u(x),
+            "twoY_case": twoY.u(x),
+            "threeY_case": threeY.u(x)
+        };
+    }
+    //anggota output harga
+    function mf_outHargaCASE(x) {
+        var murah = new linier_turun(100, 700);
+        var mahal = new linier_naik(100, 700);
+        return {
+            "murah_case": murah.u(x),
+            "mahal_case": mahal.u(x)
+        };
+    }
+
+    function mf_outHargaCASE_sugeno() {
+        return {
+            "murah": 100,
+            "mahal": 700
+        };
+    }
+    // ################# END CASING ##############
     // --------------------------------------------------------------------------
 
 
@@ -329,6 +485,74 @@
         return Math.max(Math.min(a, b), Math.min(c, d));
     }
 
+    //################ INFERENSI HDD #####################
+    function fmin_hdd(a, b) {
+        return Math.min(a, b);
+    }
+    //inferensi lanjutan
+    function fmax_hdd(arr) {
+        var a = 0;
+        for (var i in arr) {
+            a = Math.max(a, arr[i]);
+        }
+        return a;
+    }
+
+    function fmaxmin_hdd(a, b, c, d) {
+        return Math.max(Math.min(a, b), Math.min(c, d));
+    }
+
+    //################ INFERENSI VGA #####################
+    function fmin_vga(a, b) {
+        return Math.min(a, b);
+    }
+    //inferensi lanjutan
+    function fmax_vga(arr) {
+        var a = 0;
+        for (var i in arr) {
+            a = Math.max(a, arr[i]);
+        }
+        return a;
+    }
+
+    function fmaxmin_vga(a, b, c, d) {
+        return Math.max(Math.min(a, b), Math.min(c, d));
+    }
+
+    //################ INFERENSI PSU #####################
+    function fmin_psu(a, b) {
+        return Math.min(a, b);
+    }
+    //inferensi lanjutan
+    function fmax_psu(arr) {
+        var a = 0;
+        for (var i in arr) {
+            a = Math.max(a, arr[i]);
+        }
+        return a;
+    }
+
+    function fmaxmin_psu(a, b, c, d) {
+        return Math.max(Math.min(a, b), Math.min(c, d));
+    }
+
+    //################ INFERENSI CASE #####################
+    function fmin_case(a, b) {
+        return Math.min(a, b);
+    }
+    //inferensi lanjutan
+    function fmax_case(arr) {
+        var a = 0;
+        for (var i in arr) {
+            a = Math.max(a, arr[i]);
+        }
+        return a;
+    }
+
+    function fmaxmin_case(a, b, c, d) {
+        return Math.max(Math.min(a, b), Math.min(c, d));
+    }
+
 
     $("#hitung").click(function() {
         //input price proc
@@ -344,7 +568,19 @@
         var hg_ssd = parseFloat($("#hg_ssd").val());
         var usessd = parseFloat($("#use_ssd").val());
 
-        if (hg_proc || hg_mb || hg_ram || hg_ssd < 10000000) {
+        var hg_hdd = parseFloat($("#hg_hdd").val());
+        var usehdd = parseFloat($("#use_hdd").val());
+
+        var hg_vga = parseFloat($("#hg_vga").val());
+        var usevga = parseFloat($("#use_vga").val());
+
+        var hg_psu = parseFloat($("#hg_psu").val());
+        var usepsu = parseFloat($("#use_psu").val());
+
+        var hg_case = parseFloat($("#hg_case").val());
+        var usecase = parseFloat($("#use_case").val());
+
+        if (hg_proc || hg_mb || hg_ram || hg_ssd || hg_hdd || hg_vga || hg_psu || hg_case < 10000000) {
             //@@@@@@@@ INPUTAN PROCESSOR @@@@@@@
             var hg_proc2 = hg_proc.toString(); // convert string
             var hg_proc3 = hg_proc2.substring(0, 3); //diambil 3 digit (sesuai parameter kurva)
@@ -376,6 +612,39 @@
             console.log('harga ssd : ' + hg_ssd_rp);
             hg_ssd = mf_HargaSSD(hg_ssd_rp);
             console.log(hg_ssd);
+
+            //@@@@@@@@ INPUTAN HDD @@@@@@@
+            var hg_hdd2 = hg_hdd.toString();
+            var hg_hdd3 = hg_hdd2.substring(0, 3);
+            hg_hdd_rp = parseFloat(hg_hdd3);
+            console.log('harga hdd : ' + hg_hdd_rp);
+            hg_hdd = mf_HargaHDD(hg_hdd_rp);
+            console.log(hg_hdd);
+
+            //@@@@@@@@ INPUTAN VGA @@@@@@@
+            var hg_vga2 = hg_vga.toString();
+            var hg_vga3 = hg_vga2.substring(0, 3);
+            hg_vga_rp = parseFloat(hg_vga3);
+            console.log('harga vga : ' + hg_vga_rp);
+            hg_vga = mf_HargaVGA(hg_vga_rp);
+            console.log(hg_vga);
+
+            //@@@@@@@@ INPUTAN PSU @@@@@@@
+            var hg_psu2 = hg_psu.toString();
+            var hg_psu3 = hg_psu2.substring(0, 3);
+            hg_psu_rp = parseFloat(hg_psu3);
+            console.log('harga psu : ' + hg_psu_rp);
+            hg_psu = mf_HargaPSU(hg_psu_rp);
+            console.log(hg_psu);
+
+            //@@@@@@@@ INPUTAN PSU @@@@@@@
+            var hg_case2 = hg_case.toString();
+            var hg_case3 = hg_case2.substring(0, 3);
+            hg_case_rp = parseFloat(hg_case3);
+            console.log('harga case : ' + hg_case_rp);
+            hg_case = mf_HargaCASE(hg_case_rp);
+            console.log(hg_case);
+
         } else {
             console.log('harga proc : ' + hg_proc);
             hg_proc = mf_HargaProc(hg_proc);
@@ -392,6 +661,22 @@
             console.log('harga ssd : ' + hg_ssd);
             hg_ssd = mf_HargaSSD(hg_ssd);
             console.log(hg_ssd);
+
+            console.log('harga hdd : ' + hg_hdd);
+            hg_hdd = mf_HargaHDD(hg_hdd);
+            console.log(hg_hdd);
+
+            console.log('harga vga : ' + hg_vga);
+            hg_vga = mf_HargaVGA(hg_vga);
+            console.log(hg_vga);
+
+            console.log('harga psu : ' + hg_psu);
+            hg_psu = mf_HargaPSU(hg_psu);
+            console.log(hg_psu);
+
+            console.log('harga case : ' + hg_case);
+            hg_case = mf_HargaCASE(hg_case);
+            console.log(hg_case);
         }
 
 
@@ -411,6 +696,23 @@
         console.log('pemakaian ssd : ' + usessd);
         usessd = mf_UseSSD(usessd);
         console.log(usessd);
+
+        console.log('pemakaian hdd : ' + usehdd);
+        usehdd = mf_UseHDD(usehdd);
+        console.log(usehdd);
+
+        console.log('pemakaian vga : ' + usevga);
+        usevga = mf_UseVGA(usevga);
+        console.log(usevga);
+
+        console.log('pemakaian psu : ' + usepsu);
+        usepsu = mf_UsePSU(usepsu);
+        console.log(usepsu);
+
+        console.log('pemakaian case : ' + usecase);
+        usecase = mf_UseCASE(usecase);
+        console.log(usecase);
+
 
         // ####### RULES PROCESSOR ########
         var murah = [];
@@ -460,11 +762,59 @@
         murah_ssd = fmax_ssd(murahssd);
         mahal_ssd = fmax_ssd(mahalssd);
 
+        // ####### RULES HDD ########
+        var murahhdd = [];
+        var mahalhdd = [];
+        murahhdd.push(fmin_hdd(hg_hdd.murah_hdd, usehdd.oneY_hdd));
+        murahhdd.push(fmin_hdd(hg_hdd.murah_hdd, usehdd.twoY_hdd));
+        murahhdd.push(fmin_hdd(hg_hdd.murah_hdd, usehdd.threeY_hdd));
+        mahalhdd.push(fmin_hdd(hg_hdd.mahal_hdd, usehdd.oneY_hdd));
+        mahalhdd.push(fmin_hdd(hg_hdd.mahal_hdd, usehdd.twoY_hdd));
+        mahalhdd.push(fmin_hdd(hg_hdd.mahal_hdd, usehdd.threeY_hdd));
+        murah_hdd = fmax_hdd(murahhdd);
+        mahal_hdd = fmax_hdd(mahalhdd);
+
+        // ####### RULES VGA ########
+        var murahvga = [];
+        var mahalvga = [];
+        murahvga.push(fmin_vga(hg_vga.murah_vga, usevga.oneY_vga));
+        murahvga.push(fmin_vga(hg_vga.murah_vga, usevga.twoY_vga));
+        murahvga.push(fmin_vga(hg_vga.murah_vga, usevga.threeY_vga));
+        mahalvga.push(fmin_vga(hg_vga.mahal_vga, usevga.oneY_vga));
+        mahalvga.push(fmin_vga(hg_vga.mahal_vga, usevga.twoY_vga));
+        mahalvga.push(fmin_vga(hg_vga.mahal_vga, usevga.threeY_vga));
+        murah_vga = fmax_vga(murahvga);
+        mahal_vga = fmax_vga(mahalvga);
+
+        // ####### RULES PSU ########
+        var murahpsu = [];
+        var mahalpsu = [];
+        murahpsu.push(fmin_psu(hg_psu.murah_psu, usepsu.oneY_psu));
+        murahpsu.push(fmin_psu(hg_psu.murah_psu, usepsu.twoY_psu));
+        murahpsu.push(fmin_psu(hg_psu.murah_psu, usepsu.threeY_psu));
+        mahalpsu.push(fmin_psu(hg_psu.mahal_psu, usepsu.oneY_psu));
+        mahalpsu.push(fmin_psu(hg_psu.mahal_psu, usepsu.twoY_psu));
+        mahalpsu.push(fmin_psu(hg_psu.mahal_psu, usepsu.threeY_psu));
+        murah_psu = fmax_psu(murahpsu);
+        mahal_psu = fmax_psu(mahalpsu);
+
+        // ####### RULES CASING ########
+        var murahcase = [];
+        var mahalcase = [];
+        murahcase.push(fmin_case(hg_case.murah_case, usecase.oneY_case));
+        murahcase.push(fmin_case(hg_case.murah_case, usecase.twoY_case));
+        murahcase.push(fmin_case(hg_case.murah_case, usecase.threeY_case));
+        mahalcase.push(fmin_case(hg_case.mahal_case, usecase.oneY_case));
+        mahalcase.push(fmin_case(hg_case.mahal_case, usecase.twoY_case));
+        mahalcase.push(fmin_case(hg_case.mahal_case, usecase.threeY_case));
+        murah_case = fmax_case(murahcase);
+        mahal_case = fmax_case(mahalcase);
+
         //######### DEFUZZYFIKASI PROCESSOR MAMDANI ############
         var sa = 0;
         var sb = 0;
         var aa = 100;
-        for (var i = aa; i <= 600; i += aa) { //batas atas, batas bawah
+        for (var i = aa; i <= 700; i += aa) { //batas atas, batas bawah
             hargaout = mf_outHargaProc(i);
             c = fmaxmin(hargaout.murah, murah, hargaout.mahal, mahal);
             sa += i * c;
@@ -495,7 +845,7 @@
         var sa_mb = 0;
         var sb_mb = 0;
         var aa_mb = 100;
-        for (var i = aa_mb; i <= 500; i += aa_mb) {
+        for (var i = aa_mb; i <= 700; i += aa_mb) {
             hargaoutmb = mf_outHargaMb(i);
             c = fmaxmin_mb(hargaoutmb.murah_mb, murah_mb, hargaoutmb.mahal_mb, mahal_mb); //(v.objek, v[array])
             sa_mb += i * c;
@@ -525,7 +875,7 @@
         var sa_ram = 0;
         var sb_ram = 0;
         var aa_ram = 100;
-        for (var i = aa_ram; i <= 500; i += aa_ram) {
+        for (var i = aa_ram; i <= 700; i += aa_ram) {
             hargaoutram = mf_outHargaRAM(i);
             c = fmaxmin_ram(hargaoutram.murah_ram, murah_ram, hargaoutram.mahal_ram, mahal_ram); //(v.objek, v[array])
             sa_ram += i * c;
@@ -555,7 +905,7 @@
         var sa_ssd = 0;
         var sb_ssd = 0;
         var aa_ssd = 100;
-        for (var i = aa_ssd; i <= 300; i += aa_ssd) {
+        for (var i = aa_ssd; i <= 700; i += aa_ssd) {
             hargaoutssd = mf_outHargaSSD(i);
             c = fmaxmin_ssd(hargaoutssd.murah_ssd, murah_ssd, hargaoutssd.mahal_ssd, mahal_ssd); //(v.objek, v[array])
             sa_ssd += i * c;
@@ -579,6 +929,126 @@
         } else {
             g_sssd = Math.round(sssd * 10000);
             console.log('out sugeno ssd : ' + g_sssd);
+        }
+
+        //######### DEFUZZYFIKASI HDD MAMDANI ############
+        var sa_hdd = 0;
+        var sb_hdd = 0;
+        var aa_hdd = 100;
+        for (var i = aa_hdd; i <= 700; i += aa_hdd) {
+            hargaouthdd = mf_outHargaHDD(i);
+            c = fmaxmin_hdd(hargaouthdd.murah_hdd, murah_hdd, hargaouthdd.mahal_hdd, mahal_hdd); //(v.objek, v[array])
+            sa_hdd += i * c;
+            sb_hdd += c;
+        }
+        var df_hdd = sa_hdd / sb_hdd;
+        var dfhddRound = Math.round(df_hdd); //bilangan dibulatkan
+        var hg_hdd2 = parseFloat($("#hg_hdd").val());
+        var usehdd2 = parseFloat($("#use_hdd").val());
+        var convert_hdd = df_hdd * 10000;
+        var rupiah_hdd = Math.round(convert_hdd);
+
+        //######### DEFUZZYFIKASI HDD SUGENO ############
+        outhdd = mf_outHargaHDD_sugeno();
+        var shdd = (outhdd.murah * murah_hdd) + (outhdd.mahal * mahal_hdd);
+        shdd = shdd / (murah_hdd + mahal_hdd);
+        var hg_hddSG = parseFloat($("#hg_hdd").val());
+        if (hg_hddSG < 1000000) {
+            g_shdd = Math.round(shdd * 1000);
+            console.log('out sugeno hdd : ' + g_shdd);
+        } else {
+            g_shdd = Math.round(shdd * 10000);
+            console.log('out sugeno hdd : ' + g_shdd);
+        }
+
+        //######### DEFUZZYFIKASI VGA MAMDANI ############
+        var sa_vga = 0;
+        var sb_vga = 0;
+        var aa_vga = 100;
+        for (var i = aa_vga; i <= 700; i += aa_vga) {
+            hargaoutvga = mf_outHargaVGA(i);
+            c = fmaxmin_vga(hargaoutvga.murah_vga, murah_vga, hargaoutvga.mahal_vga, mahal_vga); //(v.objek, v[array])
+            sa_vga += i * c;
+            sb_vga += c;
+        }
+        var df_vga = sa_vga / sb_vga;
+        var dfvgaRound = Math.round(df_vga); //bilangan dibulatkan
+        var hg_vga2 = parseFloat($("#hg_vga").val());
+        var usevga2 = parseFloat($("#use_vga").val());
+        var convert_vga = df_vga * 10000;
+        var rupiah_vga = Math.round(convert_vga);
+
+        //######### DEFUZZYFIKASI VGA SUGENO ############
+        outvga = mf_outHargaVGA_sugeno();
+        var svga = (outvga.murah * murah_vga) + (outvga.mahal * mahal_vga);
+        svga = svga / (murah_vga + mahal_vga);
+        var hg_vgaSG = parseFloat($("#hg_vga").val());
+        if (hg_vgaSG < 1000000) {
+            g_svga = Math.round(svga * 1000);
+            console.log('out sugeno vga : ' + g_svga);
+        } else {
+            g_svga = Math.round(svga * 10000);
+            console.log('out sugeno vga : ' + g_svga);
+        }
+
+        //######### DEFUZZYFIKASI PSU MAMDANI ############
+        var sa_psu = 0;
+        var sb_psu = 0;
+        var aa_psu = 100;
+        for (var i = aa_psu; i <= 700; i += aa_psu) {
+            hargaoutpsu = mf_outHargaPSU(i);
+            c = fmaxmin_psu(hargaoutpsu.murah_psu, murah_psu, hargaoutpsu.mahal_psu, mahal_psu); //(v.objek, v[array])
+            sa_psu += i * c;
+            sb_psu += c;
+        }
+        var df_psu = sa_psu / sb_psu;
+        var dfpsuRound = Math.round(df_psu); //bilangan dibulatkan
+        var hg_psu2 = parseFloat($("#hg_psu").val());
+        var usepsu2 = parseFloat($("#use_psu").val());
+        var convert_psu = df_psu * 10000;
+        var rupiah_psu = Math.round(convert_psu);
+
+        //######### DEFUZZYFIKASI PSU SUGENO ############
+        outpsu = mf_outHargaPSU_sugeno();
+        var spsu = (outpsu.murah * murah_psu) + (outpsu.mahal * mahal_psu);
+        spsu = spsu / (murah_psu + mahal_psu);
+        var hg_psuSG = parseFloat($("#hg_psu").val());
+        if (hg_psuSG < 1000000) {
+            g_spsu = Math.round(spsu * 1000);
+            console.log('out sugeno psu : ' + g_spsu);
+        } else {
+            g_spsu = Math.round(spsu * 10000);
+            console.log('out sugeno psu : ' + g_spsu);
+        }
+
+        //######### DEFUZZYFIKASI CASING MAMDANI ############
+        var sa_case = 0;
+        var sb_case = 0;
+        var aa_case = 100;
+        for (var i = aa_case; i <= 700; i += aa_case) {
+            hargaoutcase = mf_outHargaCASE(i);
+            c = fmaxmin_case(hargaoutcase.murah_case, murah_case, hargaoutcase.mahal_case, mahal_case); //(v.objek, v[array])
+            sa_case += i * c;
+            sb_case += c;
+        }
+        var df_case = sa_case / sb_case;
+        var dfcaseRound = Math.round(df_case); //bilangan dibulatkan
+        var hg_case2 = parseFloat($("#hg_case").val());
+        var usecase2 = parseFloat($("#use_case").val());
+        var convert_case = df_case * 10000;
+        var rupiah_case = Math.round(convert_case);
+
+        //######### DEFUZZYFIKASI CASING SUGENO ############
+        outcase = mf_outHargaCASE_sugeno();
+        var scase = (outcase.murah * murah_case) + (outcase.mahal * mahal_case);
+        scase = scase / (murah_case + mahal_case);
+        var hg_caseSG = parseFloat($("#hg_case").val());
+        if (hg_caseSG < 1000000) {
+            g_scase = Math.round(scase * 1000);
+            console.log('out sugeno case : ' + g_scase);
+        } else {
+            g_scase = Math.round(scase * 10000);
+            console.log('out sugeno case : ' + g_scase);
         }
 
 
@@ -724,15 +1194,161 @@
             $("#sell_ssd").val(Math.round(rupiah_ssd / 10));
             console.log('output mamdani ssd : ' + rupiah_ssd / 10); //hasil akhir diatas 3jt
         } else {
-            $("#sell_ram").val(Math.round(rupiah_ram));
-            console.log('output mamdani ram : ' + rupiah_ram);
+            $("#sell_ssd").val(Math.round(rupiah_ssd));
+            console.log('output mamdani ssd : ' + rupiah_ssd);
         }
 
+        // ############ OUTPUT DEFUZZYFIKASI HDD #############
+        if (dfhddRound >= hg_hdd_rp) {
+            var hasil = hg_hdd_rp - dfhddRound;
+            var hasil2 = hasil * usehdd2;
+            var finalresult = hasil2 + dfhddRound;
+            // console.log('input ram : ' + hg_hdd_rp);
+            // console.log('hasil pengurangan : ' + hasil);
+            // console.log('lalu di X pemakaian : ' + hasil2);
+            // console.log('hasil akhir : ' + dfmbRound);
+            // console.log('hasil before convert : ' + convert);
+            if (hg_hdd2 >= 1000000) {
+                var shdd = Math.round(finalresult * 10000);
+                if (shdd < 0) {
+                    var shdd_r = shdd * -1;
+                    console.log('output mamdani hdd : : ' + shdd_r);
+                    $("#sell_hdd").val(shdd_r);
+                } else {
+                    console.log('output mamdani hdd : ' + shdd);
+                    $("#sell_hdd").val(shdd);
+                }
+                // $("#sell_hdd").val(Math.round(finalresult * 10000));
+                // console.log('hasil akhir jika out > input mb : ' + finalresult * 10000);
+            } else {
+                $("#sell_hdd").val(Math.round(finalresult * 1000));
+                console.log('output mamdani hdd : ' + finalresult * 1000);
+            }
+
+
+        } else if (hg_hdd2 < 1000000) {
+            $("#sell_hdd").val(Math.round(rupiah_hdd / 10));
+            console.log('output mamdani hdd : ' + rupiah_hdd / 10); //hasil akhir diatas 3jt
+        } else {
+            $("#sell_hdd").val(Math.round(rupiah_hdd));
+            console.log('output mamdani hdd : ' + rupiah_hdd);
+        }
+
+        // ############ OUTPUT DEFUZZYFIKASI VGA #############
+        if (dfvgaRound >= hg_vga_rp) {
+            var hasil = hg_vga_rp - dfvgaRound;
+            var hasil2 = hasil * usevga2;
+            var finalresult = hasil2 + dfvgaRound;
+            // console.log('input ram : ' + hg_vga_rp);
+            // console.log('hasil pengurangan : ' + hasil);
+            // console.log('lalu di X pemakaian : ' + hasil2);
+            // console.log('hasil akhir : ' + dfmbRound);
+            // console.log('hasil before convert : ' + convert);
+            if (hg_vga2 >= 1000000) {
+                var svga = Math.round(finalresult * 10000);
+                if (svga < 0) {
+                    var svga_r = svga * -1;
+                    console.log('output mamdani vga : : ' + svga_r);
+                    $("#sell_vga").val(svga_r);
+                } else {
+                    console.log('output mamdani vga : ' + svga);
+                    $("#sell_vga").val(svga);
+                }
+                // $("#sell_vga").val(Math.round(finalresult * 10000));
+                // console.log('hasil akhir jika out > input mb : ' + finalresult * 10000);
+            } else {
+                $("#sell_vga").val(Math.round(finalresult * 1000));
+                console.log('output mamdani vga : ' + finalresult * 1000);
+            }
+
+
+        } else if (hg_vga2 < 1000000) {
+            $("#sell_vga").val(Math.round(rupiah_vga / 10));
+            console.log('output mamdani vga : ' + rupiah_vga / 10); //hasil akhir diatas 3jt
+        } else {
+            $("#sell_vga").val(Math.round(rupiah_vga));
+            console.log('output mamdani vga : ' + rupiah_vga);
+        }
+
+        // ############ OUTPUT DEFUZZYFIKASI PSU #############
+        if (dfpsuRound >= hg_psu_rp) {
+            var hasil = hg_psu_rp - dfpsuRound;
+            var hasil2 = hasil * usepsu2;
+            var finalresult = hasil2 + dfpsuRound;
+            // console.log('input ram : ' + hg_psu_rp);
+            // console.log('hasil pengurangan : ' + hasil);
+            // console.log('lalu di X pemakaian : ' + hasil2);
+            // console.log('hasil akhir : ' + dfmbRound);
+            // console.log('hasil before convert : ' + convert);
+            if (hg_psu2 >= 1000000) {
+                var spsu = Math.round(finalresult * 10000);
+                if (spsu < 0) {
+                    var spsu_r = spsu * -1;
+                    console.log('output mamdani psu : : ' + spsu_r);
+                    $("#sell_psu").val(spsu_r);
+                } else {
+                    console.log('output mamdani psu : ' + spsu);
+                    $("#sell_psu").val(spsu);
+                }
+                // $("#sell_psu").val(Math.round(finalresult * 10000));
+                // console.log('hasil akhir jika out > input mb : ' + finalresult * 10000);
+            } else {
+                $("#sell_psu").val(Math.round(finalresult * 1000));
+                console.log('output mamdani psu : ' + finalresult * 1000);
+            }
+
+
+        } else if (hg_psu2 < 1000000) {
+            $("#sell_psu").val(Math.round(rupiah_psu / 10));
+            console.log('output mamdani psu : ' + rupiah_psu / 10); //hasil akhir diatas 3jt
+        } else {
+            $("#sell_psu").val(Math.round(rupiah_psu));
+            console.log('output mamdani psu : ' + rupiah_psu);
+        }
+
+        // ############ OUTPUT DEFUZZYFIKASI CASING #############
+        if (dfcaseRound >= hg_case_rp) {
+            var hasil = hg_case_rp - dfcaseRound;
+            var hasil2 = hasil * usecase2;
+            var finalresult = hasil2 + dfcaseRound;
+            // console.log('input ram : ' + hg_case_rp);
+            // console.log('hasil pengurangan : ' + hasil);
+            // console.log('lalu di X pemakaian : ' + hasil2);
+            // console.log('hasil akhir : ' + dfmbRound);
+            // console.log('hasil before convert : ' + convert);
+            if (hg_case2 >= 1000000) {
+                var scase = Math.round(finalresult * 10000);
+                if (scase < 0) {
+                    var scase_r = scase * -1;
+                    console.log('output mamdani case : : ' + scase_r);
+                    $("#sell_case").val(scase_r);
+                } else {
+                    console.log('output mamdani case : ' + scase);
+                    $("#sell_case").val(scase);
+                }
+                // $("#sell_case").val(Math.round(finalresult * 10000));
+                // console.log('hasil akhir jika out > input mb : ' + finalresult * 10000);
+            } else {
+                $("#sell_case").val(Math.round(finalresult * 1000));
+                console.log('output mamdani case : ' + finalresult * 1000);
+            }
+
+
+        } else if (hg_case2 < 1000000) {
+            $("#sell_case").val(Math.round(rupiah_case / 10));
+            console.log('output mamdani case : ' + rupiah_case / 10); //hasil akhir diatas 3jt
+        } else {
+            $("#sell_case").val(Math.round(rupiah_case));
+            console.log('output mamdani case : ' + rupiah_case);
+        }
+
+
+
         //@@@@@@@@@ TOTAL ALL @@@@@@@@@@@@@@@@
-        var fp_proc = parseFloat($("#sell_proc").val());
-        var fp_mb = parseFloat($("#sell_mb").val());
-        var g_total = fp_proc + fp_mb;
-        alert("total harga" + g_total);
+        // var fp_proc = parseFloat($("#sell_proc").val());
+        // var fp_mb = parseFloat($("#sell_mb").val());
+        // var g_total = fp_proc + fp_mb;
+        // alert("total harga" + g_total);
         // console.log('input harga : ' + hg_proc);
         // console.log('layak tinggi : ' + mahal);
 
