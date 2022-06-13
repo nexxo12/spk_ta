@@ -8,7 +8,7 @@ class getNamePC extends Model
 {
     protected $table      = 'master_barang';
     protected $useTimestamps = true;
-    protected $allowedFields = ['ID_BARANG', 'ID_KATEGORI', 'NAMA_BARANG', 'HARGA_JUAL'];
+    protected $allowedFields = ['item_NAMEID', 'ID_KATEGORI', 'NAMA_BARANG'];
 
     public function showProc()
     {

@@ -21,160 +21,171 @@
 				</li>
 			</ol>
 		</div>
-		<div class="row mb-4">
-			<div class="form-group mt-4 col-md-8">
-				<label for="inputState" style="font-weight: bold;">Pilih komponen :</label>
-				<select id="inputState" class="form-control selectpicker" data-live-search="true">
-					<option selected>Processor...</option>
-					<?php foreach ($proc as $p) : ?>
+		<form class="form-horizontal" action="<?= base_url() ?>/fuzzyC/insertHasilFuzzy" id="form_pc" method="POST">
+			<div class="row mb-4">
+				<input type="text" value="SM/PC/<?= $itemid; ?>" name="itemID" hidden>
+				<div class="form-group mt-4 col-md-8">
+					<label for="inputState" style="font-weight: bold;">Pilih komponen :</label>
+					<select id="inputState" class="form-control selectpicker" data-live-search="true" name="itemNAME[]">
+						<option selected>Processor...</option>
+						<?php foreach ($proc as $p) : ?>
 
-						<option value="<?= $p['ID_BARANG']; ?>" data-tokens="<?= $p['NAMA_BARANG']; ?>"><?= $p['NAMA_BARANG']; ?></option>
+							<option id="id_proc" value="<?= $p['item_NAMEID']; ?>" data-tokens="<?= $p['NAMA_BARANG']; ?>"><?= $p['NAMA_BARANG']; ?></option>
 
-					<?php endforeach; ?>
-				</select>
-			</div>
-			<div class="form-group mt-4 col-md-2">
-				<label for="inputEmail4" style="font-weight: bold;">Harga Beli :</label>
-				<input type="number" class="form-control" id="hg_proc" autocomplete="off">
-			</div>
-			<div class="form-group mt-4 col-md-2">
-				<label for="inputEmail4" style="font-weight: bold;">Pemakaian :</label>
-				<input type="number" class="form-control" id="use_proc" autocomplete="off">
-				<input type="number" class="form-control" id="sell_proc" autocomplete="off" readonly>
-			</div>
+						<?php endforeach; ?>
+					</select>
+				</div>
+				<div class="form-group mt-4 col-md-2">
+					<label for="inputEmail4" style="font-weight: bold;">Harga Beli :</label>
+					<input type="number" class="form-control" id="hg_proc" name="itemPRICE[]" autocomplete="off">
+				</div>
+				<div class="form-group mt-4 col-md-2">
+					<label for="inputEmail4" style="font-weight: bold;">Pemakaian :</label>
+					<input type="number" class="form-control" id="use_proc" name="itemUSE[]" autocomplete="off">
+					<input type="number" class="form-control" id="sell_proc" name="itemOutMamdani[]" autocomplete="off" readonly hidden>
+					<input type="number" class="form-control" id="sell_procsg" name="itemOutSugeno[]" autocomplete="off" readonly hidden>
+				</div>
 
-			<!-- ----------------------------------------------------------------------------------- -->
-			<div class="form-group col-md-8">
-				<select id="inputState" class="form-control selectpicker" data-live-search="true">
-					<option selected>Motherboard...</option>
-					<?php foreach ($mobo as $mb) : ?>
+				<!-- ----------------------------------------------------------------------------------- -->
+				<div class="form-group col-md-8">
+					<select id="inputState" class="form-control selectpicker" data-live-search="true" name="itemNAME[]">
+						<option selected>Motherboard...</option>
+						<?php foreach ($mobo as $mb) : ?>
 
-						<option value="<?= $mb['ID_BARANG']; ?>" data-tokens="<?= $mb['NAMA_BARANG']; ?>"><?= $mb['NAMA_BARANG']; ?></option>
+							<option value="<?= $mb['item_NAMEID']; ?>" data-tokens="<?= $mb['NAMA_BARANG']; ?>"><?= $mb['NAMA_BARANG']; ?></option>
 
-					<?php endforeach; ?>
-				</select>
-			</div>
-			<div class="form-group col-md-2">
-				<input type="number" class="form-control" id="hg_mb" autocomplete="off">
-			</div>
-			<div class="form-group col-md-2">
-				<input type="number" class="form-control" id="use_mb" autocomplete="off">
-				<input type="number" class="form-control" id="sell_mb" autocomplete="off" readonly>
-			</div>
-			<!-- ----------------------------------------------------------------------------------- -->
-			<div class="form-group col-md-8">
-				<select id="inputState" class="form-control selectpicker" data-live-search="true">
-					<option selected>Memory...</option>
-					<?php foreach ($ram as $mem) : ?>
+						<?php endforeach; ?>
+					</select>
+				</div>
+				<div class="form-group col-md-2">
+					<input type="number" class="form-control" id="hg_mb" name="itemPRICE[]" autocomplete="off">
+				</div>
+				<div class="form-group col-md-2">
+					<input type="number" class="form-control" id="use_mb" name="itemUSE[]" autocomplete="off">
+					<input type="number" class="form-control" id="sell_mb" name="itemOutMamdani[]" autocomplete="off" readonly hidden>
+					<input type="number" class="form-control" id="sell_mbsg" name="itemOutSugeno[]" autocomplete="off" readonly hidden>
+				</div>
+				<!-- ----------------------------------------------------------------------------------- -->
+				<div class="form-group col-md-8">
+					<select id="inputState" class="form-control selectpicker" data-live-search="true" name="itemNAME[]">
+						<option selected>Memory...</option>
+						<?php foreach ($ram as $mem) : ?>
 
-						<option value="<?= $mem['ID_BARANG']; ?>" data-tokens="<?= $mem['NAMA_BARANG']; ?>"><?= $mem['NAMA_BARANG']; ?></option>
+							<option value="<?= $mem['item_NAMEID']; ?>" data-tokens="<?= $mem['NAMA_BARANG']; ?>"><?= $mem['NAMA_BARANG']; ?></option>
 
-					<?php endforeach; ?>
-				</select>
-			</div>
-			<div class="form-group col-md-2">
-				<input type="number" class="form-control" id="hg_ram" autocomplete="off">
-			</div>
-			<div class="form-group col-md-2">
-				<input type="number" class="form-control" id="use_ram" autocomplete="off">
-				<input type="number" class="form-control" id="sell_ram" autocomplete="off" readonly>
-			</div>
-			<!-- ----------------------------------------------------------------------------------- -->
-			<div class="form-group col-md-8">
-				<select id="inputState" class="form-control selectpicker" data-live-search="true">
-					<option selected>SSD...</option>
-					<?php foreach ($ssd as $sd) : ?>
+						<?php endforeach; ?>
+					</select>
+				</div>
+				<div class="form-group col-md-2">
+					<input type="number" class="form-control" id="hg_ram" name="itemPRICE[]" autocomplete="off">
+				</div>
+				<div class="form-group col-md-2">
+					<input type="number" class="form-control" id="use_ram" name="itemUSE[]" autocomplete="off">
+					<input type="number" class="form-control" id="sell_ram" name="itemOutMamdani[]" autocomplete="off" readonly hidden>
+					<input type="number" class="form-control" id="sell_ramsg" name="itemOutSugeno[]" autocomplete="off" readonly hidden>
+				</div>
+				<!-- ----------------------------------------------------------------------------------- -->
+				<div class="form-group col-md-8">
+					<select id="inputState" class="form-control selectpicker" data-live-search="true" name="itemNAME[]">
+						<option selected>SSD...</option>
+						<?php foreach ($ssd as $sd) : ?>
 
-						<option value="<?= $sd['ID_BARANG']; ?>" data-tokens="<?= $sd['NAMA_BARANG']; ?>"><?= $sd['NAMA_BARANG']; ?></option>
+							<option value="<?= $sd['item_NAMEID']; ?>" data-tokens="<?= $sd['NAMA_BARANG']; ?>"><?= $sd['NAMA_BARANG']; ?></option>
 
-					<?php endforeach; ?>
-				</select>
-			</div>
-			<div class="form-group col-md-2">
-				<input type="number" class="form-control" id="hg_ssd" autocomplete="off">
-			</div>
-			<div class="form-group col-md-2">
-				<input type="number" class="form-control" id="use_ssd" autocomplete="off">
-				<input type="number" class="form-control" id="sell_ssd" autocomplete="off" readonly>
-			</div>
-			<!-- ----------------------------------------------------------------------------------- -->
-			<div class="form-group col-md-8">
-				<select id="inputState" class="form-control selectpicker" data-live-search="true">
-					<option selected>Hardisk...</option>
-					<?php foreach ($hdd as $hd) : ?>
+						<?php endforeach; ?>
+					</select>
+				</div>
+				<div class="form-group col-md-2">
+					<input type="number" class="form-control" id="hg_ssd" name="itemPRICE[]" autocomplete="off">
+				</div>
+				<div class="form-group col-md-2">
+					<input type="number" class="form-control" id="use_ssd" name="itemUSE[]" autocomplete="off">
+					<input type="number" class="form-control" id="sell_ssd" name="itemOutMamdani[]" autocomplete="off" readonly hidden>
+					<input type="number" class="form-control" id="sell_ssdsg" name="itemOutSugeno[]" autocomplete="off" readonly hidden>
+				</div>
+				<!-- ----------------------------------------------------------------------------------- -->
+				<div class="form-group col-md-8">
+					<select id="inputState" class="form-control selectpicker" data-live-search="true" name="itemNAME[]">
+						<option selected>Hardisk...</option>
+						<?php foreach ($hdd as $hd) : ?>
 
-						<option value="<?= $hd['ID_BARANG']; ?>" data-tokens="<?= $hd['NAMA_BARANG']; ?>"><?= $hd['NAMA_BARANG']; ?></option>
+							<option value="<?= $hd['item_NAMEID']; ?>" data-tokens="<?= $hd['NAMA_BARANG']; ?>"><?= $hd['NAMA_BARANG']; ?></option>
 
-					<?php endforeach; ?>
-				</select>
-			</div>
-			<div class="form-group col-md-2">
-				<input type="number" class="form-control" id="hg_hdd" autocomplete="off">
-			</div>
-			<div class="form-group col-md-2">
-				<input type="number" class="form-control" id="use_hdd" autocomplete="off">
-				<input type="number" class="form-control" id="sell_hdd" autocomplete="off" readonly>
-			</div>
-			<!-- ----------------------------------------------------------------------------------- -->
-			<div class="form-group col-md-8">
-				<select id="inputState" class="form-control selectpicker" data-live-search="true">
-					<option selected>Graphic Card (VGA)...</option>
-					<?php foreach ($vga as $gpu) : ?>
+						<?php endforeach; ?>
+					</select>
+				</div>
+				<div class="form-group col-md-2">
+					<input type="number" class="form-control" id="hg_hdd" name="itemPRICE[]" autocomplete="off">
+				</div>
+				<div class="form-group col-md-2">
+					<input type="number" class="form-control" id="use_hdd" name="itemUSE[]" autocomplete="off">
+					<input type="number" class="form-control" id="sell_hdd" name="itemOutMamdani[]" autocomplete="off" readonly hidden>
+					<input type="number" class="form-control" id="sell_hddsg" name="itemOutSugeno[]" autocomplete="off" readonly hidden>
+				</div>
+				<!-- ----------------------------------------------------------------------------------- -->
+				<div class="form-group col-md-8">
+					<select id="inputState" class="form-control selectpicker" data-live-search="true" name="itemNAME[]">
+						<option selected>Graphic Card (VGA)...</option>
+						<?php foreach ($vga as $gpu) : ?>
 
-						<option value="<?= $gpu['ID_BARANG']; ?>" data-tokens="<?= $gpu['NAMA_BARANG']; ?>"><?= $gpu['NAMA_BARANG']; ?></option>
+							<option value="<?= $gpu['item_NAMEID']; ?>" data-tokens="<?= $gpu['NAMA_BARANG']; ?>"><?= $gpu['NAMA_BARANG']; ?></option>
 
-					<?php endforeach; ?>
-				</select>
-			</div>
-			<div class="form-group col-md-2">
-				<input type="number" class="form-control" id="hg_vga" autocomplete="off">
-			</div>
-			<div class="form-group col-md-2">
-				<input type="number" class="form-control" id="use_vga" autocomplete="off">
-				<input type="number" class="form-control" id="sell_vga" autocomplete="off" readonly>
-			</div>
-			<!-- ----------------------------------------------------------------------------------- -->
-			<div class="form-group col-md-8">
-				<select id="inputState" class="form-control selectpicker" data-live-search="true">
-					<option selected>Power Supply (PSU)...</option>
-					<?php foreach ($psu as $ps) : ?>
+						<?php endforeach; ?>
+					</select>
+				</div>
+				<div class="form-group col-md-2">
+					<input type="number" class="form-control" id="hg_vga" name="itemPRICE[]" autocomplete="off">
+				</div>
+				<div class="form-group col-md-2">
+					<input type="number" class="form-control" id="use_vga" name="itemUSE[]" autocomplete="off">
+					<input type="number" class="form-control" id="sell_vga" name="itemOutMamdani[]" autocomplete="off" readonly hidden>
+					<input type="number" class="form-control" id="sell_vgasg" name="itemOutSugeno[]" autocomplete="off" readonly hidden>
+				</div>
+				<!-- ----------------------------------------------------------------------------------- -->
+				<div class="form-group col-md-8">
+					<select id="inputState" class="form-control selectpicker" data-live-search="true" name="itemNAME[]">
+						<option selected>Power Supply (PSU)...</option>
+						<?php foreach ($psu as $ps) : ?>
 
-						<option value="<?= $ps['ID_BARANG']; ?>" data-tokens="<?= $ps['NAMA_BARANG']; ?>"><?= $ps['NAMA_BARANG']; ?></option>
+							<option value="<?= $ps['item_NAMEID']; ?>" data-tokens="<?= $ps['NAMA_BARANG']; ?>"><?= $ps['NAMA_BARANG']; ?></option>
 
-					<?php endforeach; ?>
-				</select>
-			</div>
-			<div class="form-group col-md-2">
-				<input type="number" class="form-control" id="hg_psu" autocomplete="off">
-			</div>
-			<div class="form-group col-md-2">
-				<input type="number" class="form-control" id="use_psu" autocomplete="off">
-				<input type="number" class="form-control" id="sell_psu" autocomplete="off" readonly>
-			</div>
-			<!-- ----------------------------------------------------------------------------------- -->
-			<div class="form-group col-md-8">
-				<select id="inputState" class="form-control selectpicker" data-live-search="true">
-					<option selected>Casing (Case)...</option>
-					<?php foreach ($case as $cs) : ?>
+						<?php endforeach; ?>
+					</select>
+				</div>
+				<div class="form-group col-md-2">
+					<input type="number" class="form-control" id="hg_psu" name="itemPRICE[]" autocomplete="off">
+				</div>
+				<div class="form-group col-md-2">
+					<input type="number" class="form-control" id="use_psu" name="itemUSE[]" autocomplete="off">
+					<input type="number" class="form-control" id="sell_psu" name="itemOutMamdani[]" autocomplete="off" readonly hidden>
+					<input type="number" class="form-control" id="sell_psusg" name="itemOutSugeno[]" autocomplete="off" readonly hidden>
+				</div>
+				<!-- ----------------------------------------------------------------------------------- -->
+				<div class="form-group col-md-8">
+					<select id="inputState" class="form-control selectpicker" data-live-search="true" name="itemNAME[]">
+						<option selected>Casing (Case)...</option>
+						<?php foreach ($case as $cs) : ?>
 
-						<option value="<?= $cs['ID_BARANG']; ?>" data-tokens="<?= $cs['NAMA_BARANG']; ?>"><?= $cs['NAMA_BARANG']; ?></option>
+							<option value="<?= $cs['item_NAMEID']; ?>" data-tokens="<?= $cs['NAMA_BARANG']; ?>"><?= $cs['NAMA_BARANG']; ?></option>
 
-					<?php endforeach; ?>
-				</select>
+						<?php endforeach; ?>
+					</select>
+				</div>
+				<div class="form-group col-md-2">
+					<input type="number" class="form-control" id="hg_case" name="itemPRICE[]" autocomplete="off">
+				</div>
+				<div class="form-group col-md-2">
+					<input type="number" class="form-control" id="use_case" name="itemUSE[]" autocomplete="off">
+					<input type="number" class="form-control" id="sell_case" name="itemOutMamdani[]" autocomplete="off" readonly hidden>
+					<input type="number" class="form-control" id="sell_casesg" name="itemOutSugeno[]" autocomplete="off" readonly hidden>
+				</div>
 			</div>
-			<div class="form-group col-md-2">
-				<input type="number" class="form-control" id="hg_case" autocomplete="off">
+			<div class="row">
+				<div class="col text-center">
+					<button type="submit" class="btn btn-primary" data-toggle="" data-target="#staticBackdrop" id="hitung">Hitung</button>
+				</div>
 			</div>
-			<div class="form-group col-md-2">
-				<input type="number" class="form-control" id="use_case" autocomplete="off">
-				<input type="number" class="form-control" id="sell_case" autocomplete="off" readonly>
-			</div>
-		</div>
-		<div class="row">
-			<div class="col text-center">
-				<button type="submit" class="btn btn-primary" data-toggle="" data-target="#staticBackdrop" id="hitung">Hitung</button>
-			</div>
-		</div>
+		</form>
 	</div>
 	<br>
 	<br>
@@ -195,21 +206,35 @@
 
 	<!-- -----------------------modal----------------------------------- -->
 	<!-- Modal -->
-	<div class="modal  fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-		<div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+	<div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+		<div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-xl">
 			<div class="modal-content">
 				<div class="modal-header">
-					<h5 class="modal-title" id="staticBackdropLabel">Modal title</h5>
-					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<h5 class="modal-title" id="staticBackdropLabel">Detail Harga Penjualan Bekas</h5>
+					<button type="button" class="close" data-dismiss="modal" aria-label="">
 						<span aria-hidden="true">&times;</span>
 					</button>
 				</div>
 				<div class="modal-body">
-					...
+					<table class="table">
+						<thead>
+							<tr>
+								<th scope="col">No.</th>
+								<th scope="col">Nama Barang</th>
+								<th scope="col">Harga Beli</th>
+								<th scope="col">Pemakaian</th>
+								<th scope="col">Harga Jual (M)</th>
+								<th scope="col">Harga Jual (S)</th>
+							</tr>
+						</thead>
+						<tbody id="data-itemlist">
+
+						</tbody>
+					</table>
 				</div>
 				<div class="modal-footer">
-					<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-					<button type="button" class="btn btn-primary">Understood</button>
+					<button type="button" class="btn btn-secondary" id="hitung-ulang" data-dismiss="modal">Hitung Ulang</button>
+					<button type="button" class="btn btn-primary" id="simpan">Simpan</button>
 				</div>
 			</div>
 		</div>

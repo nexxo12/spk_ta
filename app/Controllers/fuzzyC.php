@@ -8,25 +8,36 @@ class fuzzyC extends BaseController
 {
 
     // jika model ingin dipakai banyak method, buat contruct
-    protected $namePC;
+    protected $fuzzyModel;
     public function __construct()
     {
-        $this->namePC = new fuzzyM();
+        $this->fuzzyModel = new fuzzyM();
     }
 
-    public function fuzzyproc()
+    public function insertHasilFuzzy()
     {
-        $procp = $this->request->getVar('price_proc'); //terima input harga ajax
-        $procu = $this->request->getVar('use_proc'); //terima input pemakaian ajax
-        //input harga proc
-        //set nilai atas - bawah
-        $ba = 100;
-        $bb = 900;
-        //menghitung linear kurva turun (murah)
-        $murah = ($bb - $procp) / ($bb - $ba);
-        //menghitung kurva mahal
-        $mahal = ($procp - $ba) / ($bb - $ba);
+        $itemID = $this->request->getVar('itemID');
+        $itemNAME = $this->request->getVar('itemNAME[]');
+        $itemPRICE = $this->request->getVar('itemPRICE[]');
+        $itemUSE = $this->request->getVar('itemUSE[]');
+        $itemOutMamdani = $this->request->getVar('itemOutMamdani[]');
+        $itemOutSugeno = $this->request->getVar('itemOutSugeno[]');
+        $this->fuzzyModel->insertHasilFuzzyDB($itemID, $itemNAME, $itemPRICE, $itemUSE, $itemOutMamdani, $itemOutSugeno);
+        // dd($this->request->getVar());
+        return redirect()->to('/');
+    }
 
-        return json_encode($mahal);
+    public function showitems()
+    {
+        $itemID = $this->request->getVar('itemID');
+        $result = $this->fuzzyModel->ShowItemsDB($itemID);
+        return json_encode($result);
+    }
+
+    public function delete()
+    {
+        $id = $this->request->getVar('id'); //data from ajax
+        $result = $this->masterBarangPenjualan->deletelist($id);
+        return json_encode($result);
     }
 }

@@ -54,6 +54,62 @@
 
         }
     }
+
+    function modalshow() {
+        var myModal = new bootstrap.Modal(document.getElementById('staticBackdrop'), {
+            keyboard: false,
+            backdrop: 'static',
+
+        })
+        myModal.show()
+    }
+
+    function loadlist_items() {
+        $.ajax({
+            type: "POST",
+            url: '<?= base_url(); ?>/fuzzyC/showitems',
+            data: 'itemID=' + $('input[name=itemID]').val(),
+            dataType: "JSON",
+            success: function(result) {
+                var html = '';
+                for (var i = 0; i < result.length; i++) {
+                    var no = parseInt(i);
+                    var price = result[i].item_PRICE;
+                    var outmamdani = result[i].item_OutMamdani;
+                    var outsugeno = result[i].item_OutSugeno;
+                    let idr_price = new Intl.NumberFormat('id-ID', {
+                        style: 'currency',
+                        currency: 'IDR'
+                    }).format(price);
+                    let idr_mamdani = new Intl.NumberFormat('id-ID', {
+                        style: 'currency',
+                        currency: 'IDR'
+                    }).format(outmamdani);
+                    let idr_sugeno = new Intl.NumberFormat('id-ID', {
+                        style: 'currency',
+                        currency: 'IDR'
+                    }).format(outsugeno);
+                    no++;
+                    html += '<tr>' +
+                        '<th scope="row">' + no + '</th>' +
+                        '<td>' + result[i].NAMA_BARANG + '</td>' +
+                        '<td>' + idr_price + '</td>' +
+                        '<td>' + result[i].item_USE + '</td>' +
+                        '<td>' + idr_mamdani + '</td>' +
+                        '<td>' + idr_sugeno + '</td>' +
+                        +'</tr>';
+                }
+                $('#data-itemlist').html(html);
+
+
+            },
+            error: function(xhr, ajaxOptions, thrownError) { // Ketika ada error
+                alert(xhr.status + "\n" + xhr.responseText + "\n" + thrownError); // Munculkan alert error
+            }
+
+
+        })
+    }
 </script>
 
 <!-- ########################menghitung fuzzy################### -->
@@ -554,7 +610,8 @@
     }
 
 
-    $("#hitung").click(function() {
+    $("#hitung").click(function(e) {
+        e.preventDefault();
         //input price proc
         var hg_proc = parseFloat($("#hg_proc").val());
         var useProc = parseFloat($("#use_proc").val());
@@ -835,9 +892,11 @@
         if (hg_procSG < 1000000) {
             g_sprc = Math.round(sprc * 1000);
             console.log('out sugeno proc : ' + g_sprc);
+            $("#sell_procsg").val(g_sprc);
         } else {
             g_sprc = Math.round(sprc * 10000);
             console.log('out sugeno proc : ' + g_sprc);
+            $("#sell_procsg").val(g_sprc);
         }
 
 
@@ -866,9 +925,11 @@
         if (hg_mbSG < 1000000) {
             g_smobo = Math.round(smobo * 1000);
             console.log('out sugeno mobo : ' + g_smobo);
+            $("#sell_mbsg").val(g_smobo);
         } else {
             g_smobo = Math.round(smobo * 10000);
             console.log('out sugeno mobo : ' + g_smobo);
+            $("#sell_mbsg").val(g_smobo);
         }
 
         //######### DEFUZZYFIKASI RAM MEMORY MAMDANI ############
@@ -896,9 +957,11 @@
         if (hg_ramSG < 1000000) {
             g_sram = Math.round(sram * 1000);
             console.log('out sugeno ram : ' + g_sram);
+            $("#sell_ramsg").val(g_sram);
         } else {
             g_sram = Math.round(sram * 10000);
             console.log('out sugeno ram : ' + g_sram);
+            $("#sell_ramsg").val(g_sram);
         }
 
         //######### DEFUZZYFIKASI SSD MAMDANI ############
@@ -926,9 +989,11 @@
         if (hg_ssdSG < 1000000) {
             g_sssd = Math.round(sssd * 1000);
             console.log('out sugeno ssd : ' + g_sssd);
+            $("#sell_ssdsg").val(g_sssd);
         } else {
             g_sssd = Math.round(sssd * 10000);
             console.log('out sugeno ssd : ' + g_sssd);
+            $("#sell_ssdsg").val(g_sssd);
         }
 
         //######### DEFUZZYFIKASI HDD MAMDANI ############
@@ -956,9 +1021,11 @@
         if (hg_hddSG < 1000000) {
             g_shdd = Math.round(shdd * 1000);
             console.log('out sugeno hdd : ' + g_shdd);
+            $("#sell_hddsg").val(g_shdd);
         } else {
             g_shdd = Math.round(shdd * 10000);
             console.log('out sugeno hdd : ' + g_shdd);
+            $("#sell_hddsg").val(g_shdd);
         }
 
         //######### DEFUZZYFIKASI VGA MAMDANI ############
@@ -986,9 +1053,11 @@
         if (hg_vgaSG < 1000000) {
             g_svga = Math.round(svga * 1000);
             console.log('out sugeno vga : ' + g_svga);
+            $("#sell_vgasg").val(g_svga);
         } else {
             g_svga = Math.round(svga * 10000);
             console.log('out sugeno vga : ' + g_svga);
+            $("#sell_vgasg").val(g_svga);
         }
 
         //######### DEFUZZYFIKASI PSU MAMDANI ############
@@ -1016,9 +1085,11 @@
         if (hg_psuSG < 1000000) {
             g_spsu = Math.round(spsu * 1000);
             console.log('out sugeno psu : ' + g_spsu);
+            $("#sell_psusg").val(g_spsu);
         } else {
             g_spsu = Math.round(spsu * 10000);
             console.log('out sugeno psu : ' + g_spsu);
+            $("#sell_psusg").val(g_spsu);
         }
 
         //######### DEFUZZYFIKASI CASING MAMDANI ############
@@ -1046,9 +1117,11 @@
         if (hg_caseSG < 1000000) {
             g_scase = Math.round(scase * 1000);
             console.log('out sugeno case : ' + g_scase);
+            $("#sell_casesg").val(g_scase);
         } else {
             g_scase = Math.round(scase * 10000);
             console.log('out sugeno case : ' + g_scase);
+            $("#sell_casesg").val(g_scase);
         }
 
 
@@ -1344,18 +1417,21 @@
 
 
 
-        //@@@@@@@@@ TOTAL ALL @@@@@@@@@@@@@@@@
-        // var fp_proc = parseFloat($("#sell_proc").val());
-        // var fp_mb = parseFloat($("#sell_mb").val());
-        // var g_total = fp_proc + fp_mb;
-        // alert("total harga" + g_total);
-        // console.log('input harga : ' + hg_proc);
-        // console.log('layak tinggi : ' + mahal);
+        $.ajax({
+            type: "POST",
+            url: '<?= base_url(); ?>/fuzzyC/insertHasilFuzzy',
+            data: $("#form_pc").serialize(), //ambil semua data di dalam form
+            success: function() {
+                // alert("berhasil!!!!")
+                loadlist_items();
+                modalshow();
+            },
+            error: function(xhr, ajaxOptions, thrownError) { // Ketika ada error
+                alert(xhr.status + "\n" + xhr.responseText + "\n" + thrownError); // Munculkan alert error
+            }
+        })
 
     })
-    // ##########################################end fuzzy proc######################################
-    // ########################## mulai fuzzy motherboard #############################################
-    //anggota harga motherboard
 </script>
 
 <script>
