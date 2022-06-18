@@ -41,4 +41,24 @@ class fuzzyM extends Model
         // return $this->select('*')->where('item_ID', $itemID)->findAll();
         return $this->table('output')->select('*')->join('master_barang', 'master_barang.item_NAMEID = output.item_NAMEID')->where('item_ID', $itemID)->findAll();
     }
+
+    public function deletelist($id)
+    {
+        return $this->where('item_ID', $id)->delete();
+    }
+
+    public function gtotalbuy($id)
+    {
+        return $this->selectSum('item_PRICE')->where('item_ID', $id)->findAll();
+    }
+
+    public function gtotalpriceM($id)
+    {
+        return $this->selectSum('item_OutMamdani')->where('item_ID', $id)->findAll();
+    }
+
+    public function gtotalpriceS($id)
+    {
+        return $this->selectSum('item_OutSugeno')->where('item_ID', $id)->findAll();
+    }
 }

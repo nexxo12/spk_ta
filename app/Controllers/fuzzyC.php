@@ -36,8 +36,29 @@ class fuzzyC extends BaseController
 
     public function delete()
     {
-        $id = $this->request->getVar('id'); //data from ajax
-        $result = $this->masterBarangPenjualan->deletelist($id);
+        $id = $this->request->getVar('itemid');
+        $result = $this->fuzzyModel->deletelist($id);
+        return json_encode($result);
+    }
+
+    public function gtotal_pricebuy()
+    {
+        $id = $this->request->getVar('itemID');
+        $result = $this->fuzzyModel->gtotalbuy($id);
+        return json_encode($result);
+    }
+
+    public function gtotal_pricemamdani()
+    {
+        $id = $this->request->getVar('itemID');
+        $result = $this->fuzzyModel->gtotalpriceM($id);
+        return json_encode($result);
+    }
+
+    public function gtotal_pricesugeno()
+    {
+        $id = $this->request->getVar('itemID');
+        $result = $this->fuzzyModel->gtotalpriceS($id);
         return json_encode($result);
     }
 }

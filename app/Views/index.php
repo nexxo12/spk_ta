@@ -211,9 +211,6 @@
 			<div class="modal-content">
 				<div class="modal-header">
 					<h5 class="modal-title" id="staticBackdropLabel">Detail Harga Penjualan Bekas</h5>
-					<button type="button" class="close" data-dismiss="modal" aria-label="">
-						<span aria-hidden="true">&times;</span>
-					</button>
 				</div>
 				<div class="modal-body">
 					<table class="table">
@@ -224,17 +221,46 @@
 								<th scope="col">Harga Beli</th>
 								<th scope="col">Pemakaian</th>
 								<th scope="col">Harga Jual (M)</th>
+								<th scope="col" style="width:1%"></th>
 								<th scope="col">Harga Jual (S)</th>
 							</tr>
 						</thead>
 						<tbody id="data-itemlist">
 
 						</tbody>
+						<tfoot>
+							<tr>
+								<td colspan="2">
+									<h5 style="text-align:right;">Total</h5>
+								</td>
+								<td>
+									<h5>
+										<input type="text" id="gtotal_buy" style="border: none; pointer-events: none;" size="11">
+									</h5>
+								</td>
+								<td>
+									<h5 style="text-align:right;">Estimasi harga jual :</h5>
+								</td>
+								<td>
+									<h5>
+										<input type="text" id="gtotal_mamdani" style="border: none; pointer-events: none;" size="11">
+									</h5>
+								</td>
+								<td>
+									<h5>s/d</h5>
+								</td>
+								<td>
+									<h5>
+										<input type="text" id="gtotal_sugeno" style="border: none; pointer-events: none;" size="11">
+									</h5>
+								</td>
+							</tr>
+						</tfoot>
 					</table>
 				</div>
 				<div class="modal-footer">
-					<button type="button" class="btn btn-secondary" id="hitung-ulang" data-dismiss="modal">Hitung Ulang</button>
-					<button type="button" class="btn btn-primary" id="simpan">Simpan</button>
+					<a class="hitung-ulang" href="/fuzzyC/delete?itemid=SM/PC/<?= $itemid; ?>"><button type="button" class="btn btn-secondary" onclick="delete_list()" data-dismiss="modal">Hitung Ulang</button></a>
+					<button type="button" class="btn btn-primary" id="simpan" onclick="window.location.reload()">Simpan</button>
 				</div>
 			</div>
 		</div>

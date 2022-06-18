@@ -94,8 +94,8 @@
                         '<th scope="row">' + no + '</th>' +
                         '<td>' + result[i].NAMA_BARANG + '</td>' +
                         '<td>' + idr_price + '</td>' +
-                        '<td>' + result[i].item_USE + '</td>' +
-                        '<td>' + idr_mamdani + '</td>' +
+                        '<td>' + result[i].item_USE + ' Tahun </td>' +
+                        '<td>' + idr_mamdani + '</td><td></td>' +
                         '<td>' + idr_sugeno + '</td>' +
                         +'</tr>';
                 }
@@ -108,6 +108,86 @@
             }
 
 
+        })
+        //MENAMPILKAN GTOTAL HARGA BELI
+        $.ajax({
+            type: 'POST',
+            url: '<?= base_url(); ?>/fuzzyC/gtotal_pricebuy',
+            dataType: "JSON",
+            data: 'itemID=' + $('input[name=itemID]').val(),
+            success: function(result) {
+                for (var i = 0; i < result.length; i++) {
+                    var gtotal_price = result[i].item_PRICE
+                    let idr_price = new Intl.NumberFormat('id-ID', {
+                        style: 'currency',
+                        currency: 'IDR'
+                    }).format(gtotal_price);
+                    $("#gtotal_buy").val(idr_price);
+
+                }
+            },
+            error: function(xhr, ajaxOptions, thrownError) { // Ketika ada error
+                alert(xhr.status + "\n" + xhr.responseText + "\n" + thrownError); // Munculkan alert error
+            }
+        });
+        //MENAMPILKAN GTOTAL HARGA MAMDANI
+        $.ajax({
+            type: 'POST',
+            url: '<?= base_url(); ?>/fuzzyC/gtotal_pricemamdani',
+            dataType: "JSON",
+            data: 'itemID=' + $('input[name=itemID]').val(),
+            success: function(result) {
+                for (var i = 0; i < result.length; i++) {
+                    var gtotal_priceM = result[i].item_OutMamdani
+                    idr_priceM = new Intl.NumberFormat('id-ID', {
+                        style: 'currency',
+                        currency: 'IDR'
+                    }).format(gtotal_priceM);
+                    $("#gtotal_mamdani").val(idr_priceM);
+
+                }
+            },
+            error: function(xhr, ajaxOptions, thrownError) { // Ketika ada error
+                alert(xhr.status + "\n" + xhr.responseText + "\n" + thrownError); // Munculkan alert error
+            }
+        });
+        //MENAMPILKAN GTOTAL HARGA SUGENO
+        $.ajax({
+            type: 'POST',
+            url: '<?= base_url(); ?>/fuzzyC/gtotal_pricesugeno',
+            dataType: "JSON",
+            data: 'itemID=' + $('input[name=itemID]').val(),
+            success: function(result) {
+                for (var i = 0; i < result.length; i++) {
+                    var gtotal_priceS = result[i].item_OutSugeno
+                    idr_priceS = new Intl.NumberFormat('id-ID', {
+                        style: 'currency',
+                        currency: 'IDR'
+                    }).format(gtotal_priceS);
+                    $("#gtotal_sugeno").val(idr_priceS);
+
+                }
+            },
+            error: function(xhr, ajaxOptions, thrownError) { // Ketika ada error
+                alert(xhr.status + "\n" + xhr.responseText + "\n" + thrownError); // Munculkan alert error
+            }
+        });
+    }
+
+    function delete_list() {
+        $(".hitung-ulang").click(function(e) {
+            e.preventDefault();
+            $.ajax({
+                type: "GET",
+                url: $(this).attr('href'), //data dikirim dari a href
+                dataType: "JSON",
+                success: function() {
+
+                },
+                error: function(xhr, ajaxOptions, thrownError) { // Ketika ada error
+                    alert(xhr.status + "\n" + xhr.responseText + "\n" + thrownError); // Munculkan alert error
+                }
+            })
         })
     }
 </script>
