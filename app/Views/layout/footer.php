@@ -242,8 +242,8 @@
 
     //#########menentukan anggota harga processor start###########
     function mf_HargaProc(x) {
-        var murah = new linier_turun(100, 1000);
-        var mahal = new linier_naik(100, 1000);
+        var murah = new linier_turun(100, 900);
+        var mahal = new linier_naik(100, 900);
         return {
             "murah": murah.u(x),
             "mahal": mahal.u(x),
@@ -262,8 +262,8 @@
     }
     //anggota output harga processor
     function mf_outHargaProc(x) {
-        var murah = new linier_turun(100, 700);
-        var mahal = new linier_naik(100, 700);
+        var murah = new linier_turun(100, 600);
+        var mahal = new linier_naik(100, 600);
         return {
             "murah": murah.u(x),
             "mahal": mahal.u(x)
@@ -273,7 +273,7 @@
     function mf_outHargaProc_sugeno() {
         return {
             "murah": 100,
-            "mahal": 700
+            "mahal": 600
         };
     }
     // #################end processor ##############
@@ -281,8 +281,8 @@
 
     // ###########menentukan member function mobo #######
     function mf_HargaMb(x) {
-        var murah = new linier_turun(100, 1000);
-        var mahal = new linier_naik(100, 1000);
+        var murah = new linier_turun(100, 900);
+        var mahal = new linier_naik(100, 900);
         return {
             "murah_mb": murah.u(x),
             "mahal_mb": mahal.u(x),
@@ -301,8 +301,8 @@
     }
     //anggota output harga
     function mf_outHargaMb(x) {
-        var murah = new linier_turun(100, 700);
-        var mahal = new linier_naik(100, 700);
+        var murah = new linier_turun(100, 600);
+        var mahal = new linier_naik(100, 600);
         return {
             "murah_mb": murah.u(x),
             "mahal_mb": mahal.u(x)
@@ -312,7 +312,7 @@
     function mf_outHargaMb_sugeno() {
         return {
             "murah": 100,
-            "mahal": 700
+            "mahal": 600
         };
     }
     // #################end motherboard ##############
@@ -320,8 +320,8 @@
 
     // ########### MEMBER FUNCTION RAM MEMORY #######
     function mf_HargaRAM(x) {
-        var murah = new linier_turun(100, 1000);
-        var mahal = new linier_naik(100, 1000);
+        var murah = new linier_turun(100, 900);
+        var mahal = new linier_naik(100, 900);
         return {
             "murah_ram": murah.u(x),
             "mahal_ram": mahal.u(x),
@@ -340,8 +340,8 @@
     }
     //anggota output harga
     function mf_outHargaRAM(x) {
-        var murah = new linier_turun(100, 700);
-        var mahal = new linier_naik(100, 700);
+        var murah = new linier_turun(100, 600);
+        var mahal = new linier_naik(100, 600);
         return {
             "murah_ram": murah.u(x),
             "mahal_ram": mahal.u(x)
@@ -351,7 +351,7 @@
     function mf_outHargaRAM_sugeno() {
         return {
             "murah": 100,
-            "mahal": 700
+            "mahal": 600
         };
     }
     // ################# END RAM MEMORY ##############
@@ -359,8 +359,8 @@
 
     // ########### MEMBER FUNCTION SSD #######
     function mf_HargaSSD(x) {
-        var murah = new linier_turun(100, 1000);
-        var mahal = new linier_naik(100, 1000);
+        var murah = new linier_turun(100, 900);
+        var mahal = new linier_naik(100, 900);
         return {
             "murah_ssd": murah.u(x),
             "mahal_ssd": mahal.u(x),
@@ -379,8 +379,8 @@
     }
     //anggota output harga
     function mf_outHargaSSD(x) {
-        var murah = new linier_turun(100, 700);
-        var mahal = new linier_naik(100, 700);
+        var murah = new linier_turun(100, 600);
+        var mahal = new linier_naik(100, 600);
         return {
             "murah_ssd": murah.u(x),
             "mahal_ssd": mahal.u(x)
@@ -390,7 +390,7 @@
     function mf_outHargaSSD_sugeno() {
         return {
             "murah": 100,
-            "mahal": 700
+            "mahal": 600
         };
     }
     // ################# END SSD ##############
@@ -398,8 +398,8 @@
 
     // ########### MEMBER FUNCTION HDD #######
     function mf_HargaHDD(x) {
-        var murah = new linier_turun(100, 1000);
-        var mahal = new linier_naik(100, 1000);
+        var murah = new linier_turun(100, 900);
+        var mahal = new linier_naik(100, 900);
         return {
             "murah_hdd": murah.u(x),
             "mahal_hdd": mahal.u(x),
@@ -418,8 +418,8 @@
     }
     //anggota output harga
     function mf_outHargaHDD(x) {
-        var murah = new linier_turun(100, 700);
-        var mahal = new linier_naik(100, 700);
+        var murah = new linier_turun(100, 600);
+        var mahal = new linier_naik(100, 600);
         return {
             "murah_hdd": murah.u(x),
             "mahal_hdd": mahal.u(x)
@@ -429,7 +429,7 @@
     function mf_outHargaHDD_sugeno() {
         return {
             "murah": 100,
-            "mahal": 700
+            "mahal": 600
         };
     }
     // ################# END HDD ##############
@@ -437,8 +437,8 @@
 
     // ########### MEMBER FUNCTION VGA #######
     function mf_HargaVGA(x) {
-        var murah = new linier_turun(100, 1000);
-        var mahal = new linier_naik(100, 1000);
+        var murah = new linier_turun(100, 900);
+        var mahal = new linier_naik(100, 900);
         return {
             "murah_vga": murah.u(x),
             "mahal_vga": mahal.u(x),
@@ -457,8 +457,8 @@
     }
     //anggota output harga
     function mf_outHargaVGA(x) {
-        var murah = new linier_turun(100, 700);
-        var mahal = new linier_naik(100, 700);
+        var murah = new linier_turun(100, 600);
+        var mahal = new linier_naik(100, 600);
         return {
             "murah_vga": murah.u(x),
             "mahal_vga": mahal.u(x)
@@ -468,7 +468,7 @@
     function mf_outHargaVGA_sugeno() {
         return {
             "murah": 100,
-            "mahal": 700
+            "mahal": 600
         };
     }
     // ################# END VGA ##############
@@ -476,8 +476,8 @@
 
     // ########### MEMBER FUNCTION PSU #######
     function mf_HargaPSU(x) {
-        var murah = new linier_turun(100, 1000);
-        var mahal = new linier_naik(100, 1000);
+        var murah = new linier_turun(100, 900);
+        var mahal = new linier_naik(100, 900);
         return {
             "murah_psu": murah.u(x),
             "mahal_psu": mahal.u(x),
@@ -496,8 +496,8 @@
     }
     //anggota output harga
     function mf_outHargaPSU(x) {
-        var murah = new linier_turun(100, 700);
-        var mahal = new linier_naik(100, 700);
+        var murah = new linier_turun(100, 600);
+        var mahal = new linier_naik(100, 600);
         return {
             "murah_psu": murah.u(x),
             "mahal_psu": mahal.u(x)
@@ -507,7 +507,7 @@
     function mf_outHargaPSU_sugeno() {
         return {
             "murah": 100,
-            "mahal": 700
+            "mahal": 600
         };
     }
     // ################# END PSU ##############
@@ -515,8 +515,8 @@
 
     // ########### MEMBER FUNCTION CASING #######
     function mf_HargaCASE(x) {
-        var murah = new linier_turun(100, 1000);
-        var mahal = new linier_naik(100, 1000);
+        var murah = new linier_turun(100, 900);
+        var mahal = new linier_naik(100, 900);
         return {
             "murah_case": murah.u(x),
             "mahal_case": mahal.u(x),
@@ -535,8 +535,8 @@
     }
     //anggota output harga
     function mf_outHargaCASE(x) {
-        var murah = new linier_turun(100, 700);
-        var mahal = new linier_naik(100, 700);
+        var murah = new linier_turun(100, 600);
+        var mahal = new linier_naik(100, 600);
         return {
             "murah_case": murah.u(x),
             "mahal_case": mahal.u(x)
@@ -546,7 +546,7 @@
     function mf_outHargaCASE_sugeno() {
         return {
             "murah": 100,
-            "mahal": 700
+            "mahal": 600
         };
     }
     // ################# END CASING ##############
@@ -951,12 +951,16 @@
         var sa = 0;
         var sb = 0;
         var aa = 100;
-        for (var i = aa; i <= 700; i += aa) { //batas atas, batas bawah
+        for (var i = aa; i <= 600; i += aa) { //batas atas, batas bawah
             hargaout = mf_outHargaProc(i);
             c = fmaxmin(hargaout.murah, murah, hargaout.mahal, mahal);
             sa += i * c;
             sb += c;
+            // console.log('hasil c : ' + c);
+            // console.log('hasil sa : ' + sa);
+            // console.log('hasil sb : ' + sb);
         }
+
         var mm = sa / sb;
         var mmRound = Math.round(mm); //bilangan dibulatkan
         var hg_proc2 = parseFloat($("#hg_proc").val());
@@ -984,7 +988,7 @@
         var sa_mb = 0;
         var sb_mb = 0;
         var aa_mb = 100;
-        for (var i = aa_mb; i <= 700; i += aa_mb) {
+        for (var i = aa_mb; i <= 600; i += aa_mb) {
             hargaoutmb = mf_outHargaMb(i);
             c = fmaxmin_mb(hargaoutmb.murah_mb, murah_mb, hargaoutmb.mahal_mb, mahal_mb); //(v.objek, v[array])
             sa_mb += i * c;
@@ -1016,7 +1020,7 @@
         var sa_ram = 0;
         var sb_ram = 0;
         var aa_ram = 100;
-        for (var i = aa_ram; i <= 700; i += aa_ram) {
+        for (var i = aa_ram; i <= 600; i += aa_ram) {
             hargaoutram = mf_outHargaRAM(i);
             c = fmaxmin_ram(hargaoutram.murah_ram, murah_ram, hargaoutram.mahal_ram, mahal_ram); //(v.objek, v[array])
             sa_ram += i * c;
@@ -1048,7 +1052,7 @@
         var sa_ssd = 0;
         var sb_ssd = 0;
         var aa_ssd = 100;
-        for (var i = aa_ssd; i <= 700; i += aa_ssd) {
+        for (var i = aa_ssd; i <= 600; i += aa_ssd) {
             hargaoutssd = mf_outHargaSSD(i);
             c = fmaxmin_ssd(hargaoutssd.murah_ssd, murah_ssd, hargaoutssd.mahal_ssd, mahal_ssd); //(v.objek, v[array])
             sa_ssd += i * c;
@@ -1080,7 +1084,7 @@
         var sa_hdd = 0;
         var sb_hdd = 0;
         var aa_hdd = 100;
-        for (var i = aa_hdd; i <= 700; i += aa_hdd) {
+        for (var i = aa_hdd; i <= 600; i += aa_hdd) {
             hargaouthdd = mf_outHargaHDD(i);
             c = fmaxmin_hdd(hargaouthdd.murah_hdd, murah_hdd, hargaouthdd.mahal_hdd, mahal_hdd); //(v.objek, v[array])
             sa_hdd += i * c;
@@ -1112,7 +1116,7 @@
         var sa_vga = 0;
         var sb_vga = 0;
         var aa_vga = 100;
-        for (var i = aa_vga; i <= 700; i += aa_vga) {
+        for (var i = aa_vga; i <= 600; i += aa_vga) {
             hargaoutvga = mf_outHargaVGA(i);
             c = fmaxmin_vga(hargaoutvga.murah_vga, murah_vga, hargaoutvga.mahal_vga, mahal_vga); //(v.objek, v[array])
             sa_vga += i * c;
@@ -1144,7 +1148,7 @@
         var sa_psu = 0;
         var sb_psu = 0;
         var aa_psu = 100;
-        for (var i = aa_psu; i <= 700; i += aa_psu) {
+        for (var i = aa_psu; i <= 600; i += aa_psu) {
             hargaoutpsu = mf_outHargaPSU(i);
             c = fmaxmin_psu(hargaoutpsu.murah_psu, murah_psu, hargaoutpsu.mahal_psu, mahal_psu); //(v.objek, v[array])
             sa_psu += i * c;
@@ -1176,7 +1180,7 @@
         var sa_case = 0;
         var sb_case = 0;
         var aa_case = 100;
-        for (var i = aa_case; i <= 700; i += aa_case) {
+        for (var i = aa_case; i <= 600; i += aa_case) {
             hargaoutcase = mf_outHargaCASE(i);
             c = fmaxmin_case(hargaoutcase.murah_case, murah_case, hargaoutcase.mahal_case, mahal_case); //(v.objek, v[array])
             sa_case += i * c;

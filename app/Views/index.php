@@ -10,9 +10,9 @@
 		<div class="alert alert-primary mt-4" role="alert">
 			Keterangan :
 			<ol>
-				<li>Pilih Komponen : Memilih komponen (part) komputer sesuai merk dan seri yang dimiliki</li>
+				<li>Pilih Komponen : Memilih komponen (part) komputer sesuai merk dan seri yang dimiliki. Jika tidak terdaftar dalam list, klik <strong><a href="/input-barang">disini</a></strong> untuk input master barang</li>
 				<li>Harga : Masukan harga pembelian part pc kamu, <strong>range harga Rp.100.000 - Rp. 10.000.000</strong></li>
-				<li>Pemakaian : Masukan durasi pemakaian dengan format sebagai berikut :
+				<li>Pemakaian : Masukan durasi pemakaian <strong>(max 3 tahun)</strong> dengan format sebagai berikut :
 					<ul>
 						<li>1 = format tahun</li>
 						<li>1,1 = format tahun dan bulan</li>

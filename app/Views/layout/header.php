@@ -30,7 +30,7 @@
 
 <nav class="navbar navbar-light navbar-expand-lg sticky-top navigation-clean" id="nav">
     <div class="container">
-        <a href="https://vskomputer.com/" class="navbar-brand" id="logo" href="#" style="background: url(&quot;assets/img/logostroke.png?h=ddc7e49a87974d2ca37370910b75abc2&quot;) center / contain no-repeat;width: 78px;height: 46px;margin: -29px;padding: 72px;">&nbsp;</a><button data-toggle="collapse" class="navbar-toggler" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+        <a href="/" class="navbar-brand" id="logo" href="#" style="background: url(&quot;assets/img/logostroke.png?h=ddc7e49a87974d2ca37370910b75abc2&quot;) center / contain no-repeat;width: 78px;height: 46px;margin: -29px;padding: 72px;">&nbsp;</a><button data-toggle="collapse" class="navbar-toggler" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
         <div class="collapse navbar-collapse" id="navcol-1">
             <ul class="nav navbar-nav ml-auto">
                 <li class="nav-item"><a class="nav-link" id="nav-text" href="http://vskomputer.com/#kategori" target="_blank">Kategori</a></li>

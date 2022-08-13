@@ -7,7 +7,6 @@ use CodeIgniter\Model;
 class getNamePC extends Model
 {
     protected $table      = 'master_barang';
-    protected $useTimestamps = true;
     protected $allowedFields = ['item_NAMEID', 'ID_KATEGORI', 'NAMA_BARANG'];
 
     public function showProc()
@@ -47,5 +46,14 @@ class getNamePC extends Model
     public function showCASE()
     {
         return $this->select('*')->where('ID_KATEGORI', 7)->orderBy('NAMA_BARANG', 'ASC')->findAll();
+    }
+
+    public function ItemNameId()
+    {
+        $id = $this->selectCount('item_NAMEID')->findAll();
+        foreach ($id as $key) {
+            $id_n = $key['item_NAMEID'] + 1;
+        }
+        return $id_n;
     }
 }
