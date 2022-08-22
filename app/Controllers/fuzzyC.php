@@ -4,7 +4,7 @@ namespace App\Controllers;
 
 use App\Models\fuzzyM;
 
-class fuzzyC extends BaseController
+class FuzzyC extends BaseController
 {
 
     // jika model ingin dipakai banyak method, buat contruct
@@ -14,17 +14,34 @@ class fuzzyC extends BaseController
         $this->fuzzyModel = new fuzzyM();
     }
 
+    // public function insertHasilFuzzy()
+    // {
+    //     $itemID = $this->request->getVar('itemID');
+    //     $itemNAME = $this->request->getVar('itemNAME[]');
+    //     $itemPRICE = $this->request->getVar('itemPRICE[]');
+    //     $itemUSE = $this->request->getVar('itemUSE[]');
+    //     $itemOutMamdani = $this->request->getVar('itemOutMamdani[]');
+    //     $itemOutSugeno = $this->request->getVar('itemOutSugeno[]');
+    //     $this->fuzzyModel->insertHasilFuzzyDB($itemID, $itemNAME, $itemPRICE, $itemUSE, $itemOutMamdani, $itemOutSugeno);
+    //     // dd($this->request->getVar());
+    //     return redirect()->to('/');
+    // }
+
     public function insertHasilFuzzy()
     {
-        $itemID = $this->request->getVar('itemID');
-        $itemNAME = $this->request->getVar('itemNAME[]');
-        $itemPRICE = $this->request->getVar('itemPRICE[]');
-        $itemUSE = $this->request->getVar('itemUSE[]');
-        $itemOutMamdani = $this->request->getVar('itemOutMamdani[]');
-        $itemOutSugeno = $this->request->getVar('itemOutSugeno[]');
-        $this->fuzzyModel->insertHasilFuzzyDB($itemID, $itemNAME, $itemPRICE, $itemUSE, $itemOutMamdani, $itemOutSugeno);
-        // dd($this->request->getVar());
-        return redirect()->to('/');
+        if ($this->request->isAJAX()) {
+            $itemID = $this->request->getVar('itemID');
+            $itemNAME = $this->request->getVar('itemNAME[]');
+            $itemPRICE = $this->request->getVar('itemPRICE[]');
+            $itemUSE = $this->request->getVar('itemUSE[]');
+            $itemOutMamdani = $this->request->getVar('itemOutMamdani[]');
+            $itemOutSugeno = $this->request->getVar('itemOutSugeno[]');
+            $this->fuzzyModel->insertHasilFuzzyDB($itemID, $itemNAME, $itemPRICE, $itemUSE, $itemOutMamdani, $itemOutSugeno);
+            // dd($this->request->getVar());
+            return redirect()->to('/');
+        } else {
+            exit('maaf tdk dapat diproses');
+        }
     }
 
     public function showitems()
@@ -60,5 +77,6 @@ class fuzzyC extends BaseController
         $id = $this->request->getVar('itemID');
         $result = $this->fuzzyModel->gtotalpriceS($id);
         return json_encode($result);
+//        return json_encode("{status:OK}");
     }
 }

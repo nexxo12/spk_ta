@@ -21,7 +21,7 @@
 				</li>
 			</ol>
 		</div>
-		<form class="form-horizontal" action="<?= base_url() ?>/fuzzyC/insertHasilFuzzy" id="form_pc" method="POST">
+		<form class="form-horizontal" action="" id="form_pc" method="POST">
 			<div class="row mb-4">
 				<input type="text" value="SM/PC/<?= $itemid; ?>" name="itemID" hidden>
 				<div class="form-group mt-4 col-md-8">

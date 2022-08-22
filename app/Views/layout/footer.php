@@ -10,6 +10,7 @@
 <script src="assets/fonts/fontawesome/js/all.min.js"></script>
 <script src="assets/js/glider.js"></script>
 
+
 <!-- script animasi scroll menu nav -->
 <script>
     $(function() {
@@ -65,6 +66,24 @@
     }
 
     function loadlist_items() {
+$.ajax({
+             type: "POST",
+             url: '<?= base_url(); ?>/fuzzyC/insertHasilFuzzy',
+             headers: {
+                 'X-Requested-With': 'XMLHttpRequest'
+             },
+             data: $("#form_pc").serialize(), //ambil semua data di dalam form
+             success: function() {
+                 // alert("berhasil!!!!")
+                 //loadlist_items();
+                 //modalshow();
+             },
+             error: function(xhr, ajaxOptions, thrownError) { // Ketika ada error
+                 alert(xhr.status + "\n" + xhr.responseText + "\n" + thrownError); // Munculkan alert error
+             }
+         });
+
+
         $.ajax({
             type: "POST",
             url: '<?= base_url(); ?>/fuzzyC/showitems',
@@ -100,12 +119,12 @@
                         +'</tr>';
                 }
                 $('#data-itemlist').html(html);
-
+		console.log(result,$('input[name=itemID]').val());
 
             },
             error: function(xhr, ajaxOptions, thrownError) { // Ketika ada error
                 alert(xhr.status + "\n" + xhr.responseText + "\n" + thrownError); // Munculkan alert error
-            }
+            },
 
 
         })
@@ -114,7 +133,7 @@
             type: 'POST',
             url: '<?= base_url(); ?>/fuzzyC/gtotal_pricebuy',
             dataType: "JSON",
-            data: 'itemID=' + $('input[name=itemID]').val(),
+	    data: 'itemID=' + $('input[name=itemID]').val(),
             success: function(result) {
                 for (var i = 0; i < result.length; i++) {
                     var gtotal_price = result[i].item_PRICE
@@ -1499,11 +1518,12 @@
             console.log('output mamdani case : ' + rupiah_case);
         }
 
-
-
         $.ajax({
             type: "POST",
-            url: '<?= base_url(); ?>/fuzzyC/insertHasilFuzzy',
+            url: $("#form_pc").attr('action'),
+            headers: {
+                'X-Requested-With': 'XMLHttpRequest'
+            },
             data: $("#form_pc").serialize(), //ambil semua data di dalam form
             success: function() {
                 // alert("berhasil!!!!")
@@ -1515,7 +1535,8 @@
             }
         })
 
-    })
+    });
+
 </script>
 
 <script>
